@@ -31,5 +31,9 @@ namespace ProjectAD.Models
         public virtual DbSet<Product_Category> Product_Categories { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<User> Users { get; set; }
+
+        public System.Data.Entity.DbSet<ProjectAD.Models.ViewModels.Test> Tests { get; set; }
+
+        public System.Data.Entity.DbSet<ProjectAD.Models.ViewModels.ListTest> ListTests { get; set; }
     }
 }

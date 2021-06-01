@@ -1,0 +1,19 @@
+﻿@model List<ProjectAD.Models.ViewModels.Test>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+}
+
+<h2>Index</h2>
+@foreach (var item in Model)
+{
+    <h4>@item.Id</h4>
+    <h4>@item.Name</h4>
+    <h4>@item.Count</h4>
+    <h4>
+        @Html.ActionLink("Edit", "Add", new { id = item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+    </h4>
+    
+}
