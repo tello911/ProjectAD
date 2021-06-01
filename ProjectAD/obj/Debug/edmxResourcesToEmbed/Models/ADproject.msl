@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ADprojectModelStoreContainer" CdmEntityContainer="ADprojectEntities">
+    <EntitySetMapping Name="Order_Details">
+      <EntityTypeMapping TypeName="ADprojectModel.Order_Detail">
+        <MappingFragment StoreEntitySet="Order Details">
+          <ScalarProperty Name="detailid" ColumnName="detailid" />
+          <ScalarProperty Name="detailorderid" ColumnName="detailorderid" />
+          <ScalarProperty Name="detailprice" ColumnName="detailprice" />
+          <ScalarProperty Name="detailproductid" ColumnName="detailproductid" />
+          <ScalarProperty Name="orderpayment" ColumnName="orderpayment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="ADprojectModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="orderid" ColumnName="orderid" />
+          <ScalarProperty Name="orderuserid" ColumnName="orderuserid" />
+          <ScalarProperty Name="orderquantity" ColumnName="orderquantity" />
+          <ScalarProperty Name="ordershipname" ColumnName="ordershipname" />
+          <ScalarProperty Name="ordershipaddress" ColumnName="ordershipaddress" />
+          <ScalarProperty Name="ordercontact" ColumnName="ordercontact" />
+          <ScalarProperty Name="ordertracking" ColumnName="ordertracking" />
+          <ScalarProperty Name="orderdate" ColumnName="orderdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payments">
+      <EntityTypeMapping TypeName="ADprojectModel.Payment">
+        <MappingFragment StoreEntitySet="Payment">
+          <ScalarProperty Name="paymentid" ColumnName="paymentid" />
+          <ScalarProperty Name="paymentuser" ColumnName="paymentuser" />
+          <ScalarProperty Name="paymentfile" ColumnName="paymentfile" />
+          <ScalarProperty Name="paymentdate" ColumnName="paymentdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Categories">
+      <EntityTypeMapping TypeName="ADprojectModel.Product_Category">
+        <MappingFragment StoreEntitySet="Product Category">
+          <ScalarProperty Name="prodcategoryid" ColumnName="prodcategoryid" />
+          <ScalarProperty Name="categoryname" ColumnName="categoryname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="ADprojectModel.Product">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="productid" ColumnName="productid" />
+          <ScalarProperty Name="productname" ColumnName="productname" />
+          <ScalarProperty Name="productprice" ColumnName="productprice" />
+          <ScalarProperty Name="productdesc" ColumnName="productdesc" />
+          <ScalarProperty Name="productimage" ColumnName="productimage" />
+          <ScalarProperty Name="prodcategory" ColumnName="prodcategory" />
+          <ScalarProperty Name="produpdatedate" ColumnName="produpdatedate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ADprojectModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="useremail" ColumnName="useremail" />
+          <ScalarProperty Name="usercontact" ColumnName="usercontact" />
+          <ScalarProperty Name="useraddress" ColumnName="useraddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

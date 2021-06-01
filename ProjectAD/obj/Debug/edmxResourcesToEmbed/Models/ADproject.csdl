@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ADprojectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Order_Detail">
+    <Key>
+      <PropertyRef Name="detailid" />
+    </Key>
+    <Property Name="detailid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="detailorderid" Type="Int32" />
+    <Property Name="detailprice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="detailproductid" Type="Int32" />
+    <Property Name="orderpayment" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="orderid" />
+    </Key>
+    <Property Name="orderid" Type="Int32" Nullable="false" />
+    <Property Name="orderuserid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="orderquantity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ordershipname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ordershipaddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ordercontact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ordertracking" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="orderdate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="paymentid" />
+    </Key>
+    <Property Name="paymentid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="paymentuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="paymentfile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="paymentdate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Product_Category">
+    <Key>
+      <PropertyRef Name="prodcategoryid" />
+    </Key>
+    <Property Name="prodcategoryid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="categoryname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="productid" />
+    </Key>
+    <Property Name="productid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="productname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="productprice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="productdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="productimage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="prodcategory" Type="Int32" />
+    <Property Name="produpdatedate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="useremail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="usercontact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="useraddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="ADprojectEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Order_Details" EntityType="Self.Order_Detail" />
+    <EntitySet Name="Orders" EntityType="Self.Order" />
+    <EntitySet Name="Payments" EntityType="Self.Payment" />
+    <EntitySet Name="Product_Categories" EntityType="Self.Product_Category" />
+    <EntitySet Name="Products" EntityType="Self.Product" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+  </EntityContainer>
+</Schema>

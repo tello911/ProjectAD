@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ADprojectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Order Details">
+          <Key>
+            <PropertyRef Name="detailid" />
+          </Key>
+          <Property Name="detailid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="detailorderid" Type="int" />
+          <Property Name="detailprice" Type="nvarchar" MaxLength="50" />
+          <Property Name="detailproductid" Type="int" />
+          <Property Name="orderpayment" Type="int" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="orderid" />
+          </Key>
+          <Property Name="orderid" Type="int" Nullable="false" />
+          <Property Name="orderuserid" Type="nvarchar" MaxLength="50" />
+          <Property Name="orderquantity" Type="nvarchar" MaxLength="50" />
+          <Property Name="ordershipname" Type="nvarchar" MaxLength="100" />
+          <Property Name="ordershipaddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="ordercontact" Type="nvarchar" MaxLength="50" />
+          <Property Name="ordertracking" Type="nvarchar" MaxLength="50" />
+          <Property Name="orderdate" Type="date" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="paymentid" />
+          </Key>
+          <Property Name="paymentid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="paymentuser" Type="nvarchar" MaxLength="50" />
+          <Property Name="paymentfile" Type="nvarchar" MaxLength="50" />
+          <Property Name="paymentdate" Type="date" />
+        </EntityType>
+        <EntityType Name="Product Category">
+          <Key>
+            <PropertyRef Name="prodcategoryid" />
+          </Key>
+          <Property Name="prodcategoryid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoryname" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="productid" />
+          </Key>
+          <Property Name="productid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="productname" Type="nvarchar" MaxLength="50" />
+          <Property Name="productprice" Type="nvarchar" MaxLength="50" />
+          <Property Name="productdesc" Type="nvarchar" MaxLength="50" />
+          <Property Name="productimage" Type="nvarchar" MaxLength="50" />
+          <Property Name="prodcategory" Type="int" />
+          <Property Name="produpdatedate" Type="date" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="useremail" Type="nvarchar" MaxLength="50" />
+          <Property Name="usercontact" Type="nvarchar" MaxLength="50" />
+          <Property Name="useraddress" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="ADprojectModelStoreContainer">
+          <EntitySet Name="Order Details" EntityType="Self.Order Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product Category" EntityType="Self.Product Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ADprojectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Order_Detail">
+          <Key>
+            <PropertyRef Name="detailid" />
+          </Key>
+          <Property Name="detailid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="detailorderid" Type="Int32" />
+          <Property Name="detailprice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="detailproductid" Type="Int32" />
+          <Property Name="orderpayment" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="orderid" />
+          </Key>
+          <Property Name="orderid" Type="Int32" Nullable="false" />
+          <Property Name="orderuserid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="orderquantity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ordershipname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ordershipaddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ordercontact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ordertracking" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="orderdate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="paymentid" />
+          </Key>
+          <Property Name="paymentid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="paymentuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="paymentfile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="paymentdate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Product_Category">
+          <Key>
+            <PropertyRef Name="prodcategoryid" />
+          </Key>
+          <Property Name="prodcategoryid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoryname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="productid" />
+          </Key>
+          <Property Name="productid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="productname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="productprice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="productdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="productimage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="prodcategory" Type="Int32" />
+          <Property Name="produpdatedate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="userid" />
+          </Key>
+          <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="useremail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="usercontact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="useraddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="ADprojectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Order_Details" EntityType="Self.Order_Detail" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="Payments" EntityType="Self.Payment" />
+          <EntitySet Name="Product_Categories" EntityType="Self.Product_Category" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ADprojectModelStoreContainer" CdmEntityContainer="ADprojectEntities">
+          <EntitySetMapping Name="Order_Details">
+            <EntityTypeMapping TypeName="ADprojectModel.Order_Detail">
+              <MappingFragment StoreEntitySet="Order Details">
+                <ScalarProperty Name="detailid" ColumnName="detailid" />
+                <ScalarProperty Name="detailorderid" ColumnName="detailorderid" />
+                <ScalarProperty Name="detailprice" ColumnName="detailprice" />
+                <ScalarProperty Name="detailproductid" ColumnName="detailproductid" />
+                <ScalarProperty Name="orderpayment" ColumnName="orderpayment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="ADprojectModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="orderid" ColumnName="orderid" />
+                <ScalarProperty Name="orderuserid" ColumnName="orderuserid" />
+                <ScalarProperty Name="orderquantity" ColumnName="orderquantity" />
+                <ScalarProperty Name="ordershipname" ColumnName="ordershipname" />
+                <ScalarProperty Name="ordershipaddress" ColumnName="ordershipaddress" />
+                <ScalarProperty Name="ordercontact" ColumnName="ordercontact" />
+                <ScalarProperty Name="ordertracking" ColumnName="ordertracking" />
+                <ScalarProperty Name="orderdate" ColumnName="orderdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="ADprojectModel.Payment">
+              <MappingFragment StoreEntitySet="Payment">
+                <ScalarProperty Name="paymentid" ColumnName="paymentid" />
+                <ScalarProperty Name="paymentuser" ColumnName="paymentuser" />
+                <ScalarProperty Name="paymentfile" ColumnName="paymentfile" />
+                <ScalarProperty Name="paymentdate" ColumnName="paymentdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product_Categories">
+            <EntityTypeMapping TypeName="ADprojectModel.Product_Category">
+              <MappingFragment StoreEntitySet="Product Category">
+                <ScalarProperty Name="prodcategoryid" ColumnName="prodcategoryid" />
+                <ScalarProperty Name="categoryname" ColumnName="categoryname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="ADprojectModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="productid" ColumnName="productid" />
+                <ScalarProperty Name="productname" ColumnName="productname" />
+                <ScalarProperty Name="productprice" ColumnName="productprice" />
+                <ScalarProperty Name="productdesc" ColumnName="productdesc" />
+                <ScalarProperty Name="productimage" ColumnName="productimage" />
+                <ScalarProperty Name="prodcategory" ColumnName="prodcategory" />
+                <ScalarProperty Name="produpdatedate" ColumnName="produpdatedate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ADprojectModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="useremail" ColumnName="useremail" />
+                <ScalarProperty Name="usercontact" ColumnName="usercontact" />
+                <ScalarProperty Name="useraddress" ColumnName="useraddress" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

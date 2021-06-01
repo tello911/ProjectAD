@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ADprojectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Order Details">
+    <Key>
+      <PropertyRef Name="detailid" />
+    </Key>
+    <Property Name="detailid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="detailorderid" Type="int" />
+    <Property Name="detailprice" Type="nvarchar" MaxLength="50" />
+    <Property Name="detailproductid" Type="int" />
+    <Property Name="orderpayment" Type="int" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="orderid" />
+    </Key>
+    <Property Name="orderid" Type="int" Nullable="false" />
+    <Property Name="orderuserid" Type="nvarchar" MaxLength="50" />
+    <Property Name="orderquantity" Type="nvarchar" MaxLength="50" />
+    <Property Name="ordershipname" Type="nvarchar" MaxLength="100" />
+    <Property Name="ordershipaddress" Type="nvarchar" MaxLength="100" />
+    <Property Name="ordercontact" Type="nvarchar" MaxLength="50" />
+    <Property Name="ordertracking" Type="nvarchar" MaxLength="50" />
+    <Property Name="orderdate" Type="date" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="paymentid" />
+    </Key>
+    <Property Name="paymentid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="paymentuser" Type="nvarchar" MaxLength="50" />
+    <Property Name="paymentfile" Type="nvarchar" MaxLength="50" />
+    <Property Name="paymentdate" Type="date" />
+  </EntityType>
+  <EntityType Name="Product Category">
+    <Key>
+      <PropertyRef Name="prodcategoryid" />
+    </Key>
+    <Property Name="prodcategoryid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categoryname" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="productid" />
+    </Key>
+    <Property Name="productid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productname" Type="nvarchar" MaxLength="50" />
+    <Property Name="productprice" Type="nvarchar" MaxLength="50" />
+    <Property Name="productdesc" Type="nvarchar" MaxLength="50" />
+    <Property Name="productimage" Type="nvarchar" MaxLength="50" />
+    <Property Name="prodcategory" Type="int" />
+    <Property Name="produpdatedate" Type="date" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="username" Type="nvarchar" MaxLength="50" />
+    <Property Name="useremail" Type="nvarchar" MaxLength="50" />
+    <Property Name="usercontact" Type="nvarchar" MaxLength="50" />
+    <Property Name="useraddress" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityContainer Name="ADprojectModelStoreContainer">
+    <EntitySet Name="Order Details" EntityType="Self.Order Details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product Category" EntityType="Self.Product Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
