@@ -1,6 +1,6 @@
 # ProjectAD
 
-1. Import DB pakai bacpac file
+1. Import DB pakai bacpac file<br>
 2. Then, pergi Web.config, search connectionStrings, kat add tu.. adjust data source jadi data source korang.. adjust kat server name je..
 <br>
 ----------------------------------------------------------------------------------------------------------------------------------------------
@@ -20,7 +20,7 @@ atau delete file  .edmx ngan file model2 atau .cs yang lain.. then, buat file .e
 ----------------------------------------------------------------------------------------------------------------------------------------------<br>
 rasanya nanti connectionStrings dia akan auto update.. 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-3. Build the solution
-4. Run the solution (with/ without debugging)
-5. Kalau ada problem boleh create Issues kat Repo ni..
+3. Build the solution<br>
+4. Run the solution (with/ without debugging)<br>
+5. Kalau ada problem boleh create Issues kat Repo ni..<br>
 <br>---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<br>
