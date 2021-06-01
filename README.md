@@ -17,8 +17,9 @@ tukar jadi: -- buang dash kat add <br>
 <-add name="ADprojectEntities" connectionString="metadata=res://*/Models.ADproject.csdl|res://*/Models.ADproject.ssdl|res://*/Models.ADproject.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source={<b>```@@nama server korang@@```</b>};initial catalog=ADproject;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
 </code>
 <br>------------------------------------------------------------------------------------------------------------------------------------------------<br>
-atau delete file  .edmx ngan file model2 atau .cs yang lain.. then, buat file .edmx baru dengan cara Models > Add > ADO.net Entity Data Model
+atau delete file  .edmx ngan file model2 atau .cs yang lain..  atau delete folder Models then, create new folder Models then 
 <br>
+then, buat file .edmx baru dengan cara Models > Add > ADO.net Entity Data Model<br>
 rasanya nanti connectionStrings dia akan auto update.. 
 <br><br><br>
 3. Build the solution<br>
