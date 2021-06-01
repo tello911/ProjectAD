@@ -14,7 +14,7 @@ Contoh: -- buang dash kat add dari <-add kepada < add
 <br>----------------------------------------------------------------------------------------------------------------------------------------------<br>
 tukar jadi: -- buang dash kat add <br>
 <code>
-<-add name="ADprojectEntities" connectionString="metadata=res://*/Models.ADproject.csdl|res://*/Models.ADproject.ssdl|res://*/Models.ADproject.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=<mark>{nama server korang}</mark>;initial catalog=ADproject;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
+<-add name="ADprojectEntities" connectionString="metadata=res://*/Models.ADproject.csdl|res://*/Models.ADproject.ssdl|res://*/Models.ADproject.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source={<b>nama server korang</b>};initial catalog=ADproject;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
 </code>
 <br>------------------------------------------------------------------------------------------------------------------------------------------------<br>
 atau delete file  .edmx ngan file model2 atau .cs yang lain.. then, buat file .edmx baru dengan cara Models > Add > ADO.net Entity Data Model
