@@ -9,7 +9,7 @@ Contoh:   <add name="ADprojectEntities" connectionString="metadata=res://*/Model
 <br>----------------------------------------------------------------------------------------------------------------------------------------------
 tukar jadi: <add name="ADprojectEntities" connectionString="metadata=res://*/Models.ADproject.csdl|res://*/Models.ADproject.ssdl|res://*/Models.ADproject.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=<nama server korang>;initial catalog=ADproject;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" providerName="System.Data.EntityClient" />
 <br>------------------------------------------------------------------------------------------------------------------------------------------------
-atau delete file  .edmx sekarang then, buat file .edmx baru dengan cara Models > Add > ADO.net Entity Data Model
+atau delete file  .edmx ngan file model2 atau .cs yang lain.. then, buat file .edmx baru dengan cara Models > Add > ADO.net Entity Data Model
 ----------------------------------------------------------------------------------------------------------------------------------------------
 rasanya nanti connectionStrings dia akan auto update.. 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
