@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_LayoutCustomer.cshtml";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
 
 <h2>Index</h2>
@@ -164,9 +164,10 @@
         outline: none !important;
         padding: 0.6em 1em;
     }
+
     }
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" >
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"/ >
 </style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -175,8 +176,8 @@
 
 @foreach (var item in Model)
 {
-    <div class="col-md-6 col-lg-6">
-        <div class="card" >
+    <div class="col-md-6 col-lg-6" style="margin-bottom: 200px;">
+        <div class="card">
             <div class="card-body" style="text-align:center;">
                 <div class="plan-pic">
                     <img src="~/Content/Products/@Html.DisplayFor(modelItem => item.productimage)" alt="Image @item.productid" height="100%" width="100%" />
@@ -198,39 +199,12 @@
                     @Html.ActionLink("Details", "Details", new { id = item.productid }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.productid })
                 </div>
-                <div >
-                    <button class="btn btn-primary">@Html.ActionLink("Edit", "Edit", new { id = item.productid}, new { style="color:white;"})</button>
+                <div>
+                    <button class="btn btn-primary">@Html.ActionLink("Edit", "Edit", new { id = item.productid }, new { style = "color:white;" })</button>
                 </div>
                 <br /><br />
             </div>
         </div>
     </div>
 }
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+

@@ -1,31 +1,747 @@
 ﻿@{
     ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
+<div class="logo_products">
+    <div class="container">
+        <div class="w3ls_logo_products_left1">
+            <ul class="phone_email">
+                <li><i class="fa fa-phone" aria-hidden="true"></i>Order online or call us : (+0123) 234 567</li>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+            </ul>
+        </div>
+        <div class="w3ls_logo_products_left">
+            <h1><a href="index.cshtml">ZHR Computer and Network System</a></h1>
+        </div>
+        <div class="w3l_search">
+            <form action="#" method="post">
+                <input type="search" name="Search" placeholder="Search for a Product..." required="">
+                <button type="submit" class="btn btn-default search" aria-label="Left Align">
+                    <i class="fa fa-search" aria-hidden="true"> </i>
+                </button>
+                <div class="clearfix"></div>
+            </form>
+        </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <div class="clearfix"> </div>
     </div>
 </div>
+<!-- //header -->
+<!-- navigation -->
+<div class="navigation-agileits">
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header nav_2">
+                <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html" class="act">Home</a></li>
+                    <!-- Mega Menu -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Components<b class="caret"></b></a>
+                        <ul class="dropdown-menu multi-column columns-3">
+                            <div class="row">
+                                <div class="multi-gd-img">
+                                    <ul class="multi-column-dropdown">
+                                        <h6>Components</h6>
+                                        <li><a href="groceries.html">Motherboard</a></li>
+                                        <li><a href="groceries.html">RAM</a></li>
+                                        <li><a href="groceries.html">SSD</a></li>
+                                        <li><a href="groceries.html">HDD</a></li>
+                                        <li><a href="groceries.html"> GPU </a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Computer Accesories<b class="caret"></b></a>
+                        <ul class="dropdown-menu multi-column columns-3">
+                            <div class="row">
+                                <div class="multi-gd-img">
+                                    <ul class="multi-column-dropdown">
+                                        <h6>Computer Accesories</h6>
+                                        <li><a href="household.html">Keyboard</a></li>
+                                        <li><a href="household.html">Mouse</a></li>
+                                        <li><a href="household.html">Wires</a></li>
+                                        <li><a href="household.html">Monitor</a></li>
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Network Components<b class="caret"></b></a>
+                        <ul class="dropdown-menu multi-column columns-3">
+                            <div class="row">
+                                <div class="multi-gd-img">
+                                    <ul class="multi-column-dropdown">
+                                        <h6>Network Component</h6>
+                                        <li><a href="personalcare.html">Cables</a></li>
+                                        <li><a href="personalcare.html">Routers</a></li>
+                                        <li><a href="personalcare.html">Server</a></li>
+                                        <li><a href="personalcare.html">Switch</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Others<b class="caret"></b></a>
+                        <ul class="dropdown-menu multi-column columns-3">
+                            <div class="row">
+                                <div class="multi-gd-img">
+                                    <ul class="multi-column-dropdown">
+                                        <h6>Others</h6>
+                                        <li><a href="beverages.html">Audio</a></li>
+                                        <li><a href="beverages.html">Printer</a></li>
+                                        <li><a href="beverages.html">Ink</a></li>
+                                        <li><a href="beverages.html">Projectors</a></li>
+                                </div>
+
+                            </div>
+                        </ul>
+                    </li>
+                    <li><a href="offers.html">Offers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+
+<!-- //navigation -->
+<!-- main-slider -->
+<ul id="demo1">
+    <li>
+        <img width="200" height="600"  src="~/Content/images/11.jpg" alt="" />
+        <!--Slider Description example-->
+        <div class="slide-desc">
+            <h3>Tp_Link Products Are Now On Line With Us</h3>
+        </div>
+    </li>
+    <li>
+        <img width="200" height="600"  src="~/Content/images/22.jpg" alt="" />
+        <div class="slide-desc">
+            <h3>Epson Products Are Now On Line With Us</h3>
+        </div>
+    </li>
+
+    <li>
+        <img width="200" height="600"  src="~/Content/images/44.jpg" alt="" />
+        <div class="slide-desc">
+            <h3>Sony Products Are Now On Line With Us</h3>
+        </div>
+    </li>
+</ul>
+<!-- //main-slider -->
+<!-- //top-header and slider -->
+<!-- top-brands -->
+<div class="top-brands">
+    <div class="container">
+        <h2>Top selling offers</h2>
+        <div class="grid_3 grid_5">
+            <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                <ul id="myTab" class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#expeditions" id="expeditions-tab" role="tab" data-toggle="tab" aria-controls="expeditions" aria-expanded="true">Advertised offers</a></li>
+                    <li role="presentation"><a href="#tours" role="tab" id="tours-tab" data-toggle="tab" aria-controls="tours">Today Offers</a></li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="expeditions" aria-labelledby="expeditions-tab">
+                        <div class="agile-tp">
+                            <h5>Advertised this week</h5>
+                            <p class="w3l-ad">We've pulled together all our advertised offers into one place, so you won't miss out on a great deal.</p>
+                        </div>
+                        <div class="agile_top_brands_grids">
+                            <div class="col-md-4 top_brand_left">
+                                <div class="hover14 column">
+                                    <div class="agile_top_brand_left_grid">
+                                        <div class="agile_top_brand_left_grid_pos">
+                                            <img width="200" height="250"  src="~/Content/images/offer.png" alt=" " class="img-responsive" />
+                                        </div>
+                                        <div class="agile_top_brand_left_grid1">
+                                            <figure>
+                                                <div class="snipcart-item block">
+                                                    <div class="snipcart-thumb">
+                                                        <a href="products.html"><img width="200" height="250" width="200" height="250"title=" " alt=" "  src="~/Content/images/1.png" /></a>
+                                                        <p>Cosair fan </p>
+                                                        <div class="stars">
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                                        </div>
+                                                        <h4>$20.99 <span>$35.00</span></h4>
+                                                    </div>
+                                                    <div class="snipcart-details top_brand_home_details">
+                                                        <form action="#" method="post">
+                                                            <fieldset>
+                                                                <input type="hidden" name="cmd" value="_cart" />
+                                                                <input type="hidden" name="add" value="1" />
+                                                                <input type="hidden" name="business" value=" " />
+                                                                <input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
+                                                                <input type="hidden" name="amount" value="20.99" />
+                                                                <input type="hidden" name="discount_amount" value="1.00" />
+                                                                <input type="hidden" name="currency_code" value="USD" />
+                                                                <input type="hidden" name="return" value=" " />
+                                                                <input type="hidden" name="cancel_return" value=" " />
+                                                                <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 top_brand_left">
+                                <div class="hover14 column">
+                                    <div class="agile_top_brand_left_grid">
+                                        <div class="agile_top_brand_left_grid_pos">
+                                            <img width="200" height="250"  src="~/Content/images/offer.png" alt=" " class="img-responsive" />
+                                        </div>
+                                        <div class="agile_top_brand_left_grid1">
+                                            <figure>
+                                                <div class="snipcart-item block">
+                                                    <div class="snipcart-thumb">
+                                                        <a href="products.html"><img width="200" height="250" title=" " alt=" "  src="~/Content/images/2.png" /></a>
+                                                        <p>Cosair fan</p>
+                                                        <div class="stars">
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                                        </div>
+                                                        <h4>RM 200.99 <span>RM 305.00</span></h4>
+                                                    </div>
+                                                    <div class="snipcart-details top_brand_home_details">
+                                                        <form action="#" method="post">
+                                                            <fieldset>
+                                                                <input type="hidden" name="cmd" value="_cart" />
+                                                                <input type="hidden" name="add" value="1" />
+                                                                <input type="hidden" name="business" value=" " />
+                                                                <input type="hidden" name="item_name" value="basmati rise" />
+                                                                <input type="hidden" name="amount" value="20.99" />
+                                                                <input type="hidden" name="discount_amount" value="1.00" />
+                                                                <input type="hidden" name="currency_code" value="USD" />
+                                                                <input type="hidden" name="return" value=" " />
+                                                                <input type="hidden" name="cancel_return" value=" " />
+                                                                <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 top_brand_left">
+                                <div class="hover14 column">
+                                    <div class="agile_top_brand_left_grid">
+                                        <div class="agile_top_brand_left_grid_pos">
+                                            <img width="200" height="250"  src="~/Content/images/offer.png" alt=" " class="img-responsive" />
+                                        </div>
+                                        <div class="agile_top_brand_left_grid1">
+                                            <figure>
+                                                <div class="snipcart-item block">
+                                                    <div class="snipcart-thumb">
+                                                        <a href="products.html"><img width="200" height="250"  src="~/Content/images/3.png" alt=" " class="img-responsive" /></a>
+                                                        <p>WD SSD</p>
+                                                        <div class="stars">
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                                        </div>
+                                                        <h4>RM 400.99 <span>RM 605.00</span></h4>
+                                                    </div>
+                                                    <div class="snipcart-details top_brand_home_details">
+                                                        <form action="#" method="post">
+                                                            <fieldset>
+                                                                <input type="hidden" name="cmd" value="_cart" />
+                                                                <input type="hidden" name="add" value="1" />
+                                                                <input type="hidden" name="business" value=" " />
+                                                                <input type="hidden" name="item_name" value="Pepsi soft drink" />
+                                                                <input type="hidden" name="amount" value="40.00" />
+                                                                <input type="hidden" name="discount_amount" value="1.00" />
+                                                                <input type="hidden" name="currency_code" value="USD" />
+                                                                <input type="hidden" name="return" value=" " />
+                                                                <input type="hidden" name="cancel_return" value=" " />
+                                                                <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="agile_top_brands_grids">
+                            <div class="col-md-4 top_brand_left">
+                                <div class="hover14 column">
+                                    <div class="agile_top_brand_left_grid">
+                                        <div class="agile_top_brand_left_grid_pos">
+                                            <img width="200" height="250"  src="~/Content/images/offer.png" alt=" " class="img-responsive" />
+                                        </div>
+                                        <div class="agile_top_brand_left_grid1">
+                                            <figure>
+                                                <div class="snipcart-item block">
+                                                    <div class="snipcart-thumb">
+                                                        <a href="products.html"><img width="200" height="250" title=" " alt=" "  src="~/Content/images/4.png" /></a>
+                                                        <p>Western Digital SSD</p>
+                                                        <div class="stars">
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                                        </div>
+                                                        <h4>RM 305.99 <span>RM 505.00</span></h4>
+                                                    </div>
+                                                    <div class="snipcart-details top_brand_home_details">
+                                                        <form action="#" method="post">
+                                                            <fieldset>
+                                                                <input type="hidden" name="cmd" value="_cart" />
+                                                                <input type="hidden" name="add" value="1" />
+                                                                <input type="hidden" name="business" value=" " />
+                                                                <input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
+                                                                <input type="hidden" name="amount" value="35.99" />
+                                                                <input type="hidden" name="discount_amount" value="1.00" />
+                                                                <input type="hidden" name="currency_code" value="USD" />
+                                                                <input type="hidden" name="return" value=" " />
+                                                                <input type="hidden" name="cancel_return" value=" " />
+                                                                <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 top_brand_left">
+                                <div class="hover14 column">
+                                    <div class="agile_top_brand_left_grid">
+                                        <div class="agile_top_brand_left_grid_pos">
+                                            <img width="200" height="250"  src="~/Content/images/offer.png" alt=" " class="img-responsive" />
+                                        </div>
+                                        <div class="agile_top_brand_left_grid1">
+                                            <figure>
+                                                <div class="snipcart-item block">
+                                                    <div class="snipcart-thumb">
+                                                        <a href="products.html"><img width="200" height="250" title=" " alt=" "  src="~/Content/images/5.png" /></a>
+                                                        <p>WD HDD 1TB</p>
+                                                        <div class="stars">
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                                        </div>
+                                                        <h4>RM 300.99 <span> RM 405.00</span></h4>
+                                                    </div>
+                                                    <div class="snipcart-details top_brand_home_details">
+                                                        <form action="#" method="post">
+                                                            <fieldset>
+                                                                <input type="hidden" name="cmd" value="_cart" />
+                                                                <input type="hidden" name="add" value="1" />
+                                                                <input type="hidden" name="business" value=" " />
+                                                                <input type="hidden" name="item_name" value="basmati rise" />
+                                                                <input type="hidden" name="amount" value="30.99" />
+                                                                <input type="hidden" name="discount_amount" value="1.00" />
+                                                                <input type="hidden" name="currency_code" value="USD" />
+                                                                <input type="hidden" name="return" value=" " />
+                                                                <input type="hidden" name="cancel_return" value=" " />
+                                                                <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 top_brand_left">
+                                <div class="hover14 column">
+                                    <div class="agile_top_brand_left_grid">
+                                        <div class="agile_top_brand_left_grid_pos">
+                                            <img width="200" height="250"  src="~/Content/images/offer.png" alt=" " class="img-responsive" />
+                                        </div>
+                                        <div class="agile_top_brand_left_grid_pos">
+                                            <img width="200" height="250"  src="~/Content/images/offer.png" alt=" " class="img-responsive" />
+                                        </div>
+                                        <div class="agile_top_brand_left_grid1">
+                                            <figure>
+                                                <div class="snipcart-item block">
+                                                    <div class="snipcart-thumb">
+                                                        <a href="products.html"><img width="200" height="250"  src="~/Content/images/6.png" alt=" " class="img-responsive" /></a>
+                                                        <p>Logilink Mouse</p>
+                                                        <div class="stars">
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                                        </div>
+                                                        <h4>RM 20.99 <span>Rm 35.00</span></h4>
+                                                    </div>
+                                                    <div class="snipcart-details top_brand_home_details">
+                                                        <form action="#" method="post">
+                                                            <fieldset>
+                                                                <input type="hidden" name="cmd" value="_cart" />
+                                                                <input type="hidden" name="add" value="1" />
+                                                                <input type="hidden" name="business" value=" " />
+                                                                <input type="hidden" name="item_name" value="Pepsi soft drink" />
+                                                                <input type="hidden" name="amount" value="80.00" />
+                                                                <input type="hidden" name="discount_amount" value="1.00" />
+                                                                <input type="hidden" name="currency_code" value="USD" />
+                                                                <input type="hidden" name="return" value=" " />
+                                                                <input type="hidden" name="cancel_return" value=" " />
+                                                                <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="tours" aria-labelledby="tours-tab">
+                        <div class="agile-tp">
+                            <h5>This week</h5>
+                            <p class="w3l-ad">We've pulled together all our advertised offers into one place, so you won't miss out on a great deal.</p>
+                        </div>
+                        <div class="agile_top_brands_grids">
+                            <div class="col-md-4 top_brand_left">
+                                <div class="hover14 column">
+                                    <div class="agile_top_brand_left_grid">
+                                        <div class="agile_top_brand_left_grid_pos">
+                                            <img width="200" height="250"  src="~/Content/images/offer.png" alt=" " class="img-responsive" />
+                                        </div>
+                                        <div class="agile_top_brand_left_grid1">
+                                            <figure>
+                                                <div class="snipcart-item block">
+                                                    <div class="snipcart-thumb">
+                                                        <a href="products.html"><img width="200" height="250" title=" " alt=" "  src="~/Content/images/7.png" /></a>
+                                                        <p>Gaming Mouse</p>
+                                                        <div class="stars">
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                                        </div>
+                                                        <h4>Rm 35.99 <span>RM 55.00</span></h4>
+                                                    </div>
+                                                    <div class="snipcart-details top_brand_home_details">
+                                                        <form action="#" method="post">
+                                                            <fieldset>
+                                                                <input type="hidden" name="cmd" value="_cart" />
+                                                                <input type="hidden" name="add" value="1" />
+                                                                <input type="hidden" name="business" value=" " />
+                                                                <input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
+                                                                <input type="hidden" name="amount" value="35.99" />
+                                                                <input type="hidden" name="discount_amount" value="1.00" />
+                                                                <input type="hidden" name="currency_code" value="USD" />
+                                                                <input type="hidden" name="return" value=" " />
+                                                                <input type="hidden" name="cancel_return" value=" " />
+                                                                <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 top_brand_left">
+                                <div class="hover14 column">
+                                    <div class="agile_top_brand_left_grid">
+                                        <div class="agile_top_brand_left_grid_pos">
+                                            <img width="200" height="250"  src="~/Content/images/offer.png" alt=" " class="img-responsive" />
+                                        </div>
+                                        <div class="agile_top_brand_left_grid1">
+                                            <figure>
+                                                <div class="snipcart-item block">
+                                                    <div class="snipcart-thumb">
+                                                        <a href="products.html"><img width="200" height="250" title=" " alt=" "  src="~/Content/images/8.png" /></a>
+                                                        <p>Cosair Keyboard</p>
+                                                        <div class="stars">
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                                        </div>
+                                                        <h4>RM 300.99 <span>Rm 450.00</span></h4>
+                                                    </div>
+                                                    <div class="snipcart-details top_brand_home_details">
+                                                        <form action="#" method="post">
+                                                            <fieldset>
+                                                                <input type="hidden" name="cmd" value="_cart" />
+                                                                <input type="hidden" name="add" value="1" />
+                                                                <input type="hidden" name="business" value=" " />
+                                                                <input type="hidden" name="item_name" value="basmati rise" />
+                                                                <input type="hidden" name="amount" value="30.99" />
+                                                                <input type="hidden" name="discount_amount" value="1.00" />
+                                                                <input type="hidden" name="currency_code" value="USD" />
+                                                                <input type="hidden" name="return" value=" " />
+                                                                <input type="hidden" name="cancel_return" value=" " />
+                                                                <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 top_brand_left">
+                                <div class="hover14 column">
+                                    <div class="agile_top_brand_left_grid">
+                                        <div class="agile_top_brand_left_grid_pos">
+                                            <img width="200" height="250"  src="~/Content/images/offer.png" alt=" " class="img-responsive" />
+                                        </div>
+                                        <div class="agile_top_brand_left_grid_pos">
+                                            <img width="200" height="250"  src="~/Content/images/offer.png" alt=" " class="img-responsive" />
+                                        </div>
+                                        <div class="agile_top_brand_left_grid1">
+                                            <figure>
+                                                <div class="snipcart-item block">
+                                                    <div class="snipcart-thumb">
+                                                        <a href="products.html"><img width="200" height="250"  src="~/Content/images/9.png" alt=" " class="img-responsive" /></a>
+                                                        <p>Speaker</p>
+                                                        <div class="stars">
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                                        </div>
+                                                        <h4>RM 23.99 <span>Rm 51.00</span></h4>
+                                                    </div>
+                                                    <div class="snipcart-details top_brand_home_details">
+                                                        <form action="#" method="post">
+                                                            <fieldset>
+                                                                <input type="hidden" name="cmd" value="_cart" />
+                                                                <input type="hidden" name="add" value="1" />
+                                                                <input type="hidden" name="business" value=" " />
+                                                                <input type="hidden" name="item_name" value="Pepsi soft drink" />
+                                                                <input type="hidden" name="amount" value="80.00" />
+                                                                <input type="hidden" name="discount_amount" value="1.00" />
+                                                                <input type="hidden" name="currency_code" value="USD" />
+                                                                <input type="hidden" name="return" value=" " />
+                                                                <input type="hidden" name="cancel_return" value=" " />
+                                                                <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="agile_top_brands_grids">
+                            <div class="col-md-4 top_brand_left">
+                                <div class="hover14 column">
+                                    <div class="agile_top_brand_left_grid">
+                                        <div class="agile_top_brand_left_grid_pos">
+                                            <img width="200" height="250"  src="~/Content/images/offer.png" alt=" " class="img-responsive" />
+                                        </div>
+                                        <div class="agile_top_brand_left_grid1">
+                                            <figure>
+                                                <div class="snipcart-item block">
+                                                    <div class="snipcart-thumb">
+                                                        <a href="products.html"><img width="200" height="250" title=" " alt=" "  src="~/Content/images/10.png" /></a>
+                                                        <p>Sony Speaker</p>
+                                                        <div class="stars">
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                                        </div>
+                                                        <h4>RM 200.99 <span>RM350.00</span></h4>
+                                                    </div>
+                                                    <div class="snipcart-details top_brand_home_details">
+                                                        <form action="#" method="post">
+                                                            <fieldset>
+                                                                <input type="hidden" name="cmd" value="_cart" />
+                                                                <input type="hidden" name="add" value="1" />
+                                                                <input type="hidden" name="business" value=" " />
+                                                                <input type="hidden" name="item_name" value="Fortune Sunflower Oil" />
+                                                                <input type="hidden" name="amount" value="20.99" />
+                                                                <input type="hidden" name="discount_amount" value="1.00" />
+                                                                <input type="hidden" name="currency_code" value="USD" />
+                                                                <input type="hidden" name="return" value=" " />
+                                                                <input type="hidden" name="cancel_return" value=" " />
+                                                                <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 top_brand_left">
+                                <div class="hover14 column">
+                                    <div class="agile_top_brand_left_grid">
+                                        <div class="agile_top_brand_left_grid_pos">
+                                            <img width="200" height="250"  src="~/Content/images/offer.png" alt=" " class="img-responsive" />
+                                        </div>
+                                        <div class="agile_top_brand_left_grid1">
+                                            <figure>
+                                                <div class="snipcart-item block">
+                                                    <div class="snipcart-thumb">
+                                                        <a href="products.html"><img width="200" height="250" title=" " alt=" "  src="~/Content/images/12.png" /></a>
+                                                        <p>Network Cable</p>
+                                                        <div class="stars">
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star blue-star" aria-hidden="true"></i>
+                                                            <i class="fa fa-star gray-star" aria-hidden="true"></i>
+                                                        </div>
+                                                        <h4>RM20.99 <span>RM 35.00</span></h4>
+                                                    </div>
+                                                    <div class="snipcart-details top_brand_home_details">
+                                                        <form action="#" method="post">
+                                                            <fieldset>
+                                                                <input type="hidden" name="cmd" value="_cart" />
+                                                                <input type="hidden" name="add" value="1" />
+                                                                <input type="hidden" name="business" value=" " />
+                                                                <input type="hidden" name="item_name" value="basmati rise" />
+                                                                <input type="hidden" name="amount" value="20.99" />
+                                                                <input type="hidden" name="discount_amount" value="1.00" />
+                                                                <input type="hidden" name="currency_code" value="USD" />
+                                                                <input type="hidden" name="return" value=" " />
+                                                                <input type="hidden" name="cancel_return" value=" " />
+                                                                <input type="submit" name="submit" value="Add to cart" class="button" />
+                                                            </fieldset>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //top-brands -->
+
+<!--banner-bottom-->
+<div class="ban-bottom-w3l">
+    <div class="container">
+        <div class="col-md-6 ban-bottom3">
+            <div class="ban-top">
+                <img width="200" height="250"  src="~/Content/images/p2.jpg" class="img-responsive" alt="" />
+
+            </div>
+            <div class="ban-img">
+                <div class=" ban-bottom1">
+                    <div class="ban-top">
+                        <img width="200" height="250"  src="~/Content/images/p3.jpg" class="img-responsive" alt="" />
+
+                    </div>
+                </div>
+                <div class="ban-bottom2">
+                    <div class="ban-top">
+                        <img width="200" height="250"  src="~/Content/images/p4.jpg" class="img-responsive" alt="" />
+
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <div class="col-md-6 ban-bottom">
+            <div class="ban-top">
+                <img width="200" height="250"  src="~/Content/images/111.jpg" class="img-responsive" alt="" />
+
+
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!--banner-bottom-->
+<!--brands-->
+<div class="brands">
+    <div class="container">
+        <h3>Brand Store</h3>
+        <div class="brands-agile">
+            <div class="col-md-2 w3layouts-brand">
+                <div class="brands-w3l">
+                    <p><a href="#">Tp-Link</a></p>
+                </div>
+            </div>
+            <div class="col-md-2 w3layouts-brand">
+                <div class="brands-w3l">
+                    <p><a href="#">Asus</a></p>
+                </div>
+            </div>
+            <div class="col-md-2 w3layouts-brand">
+                <div class="brands-w3l">
+                    <p><a href="#">Logitech</a></p>
+                </div>
+            </div>
+
+            <div class="col-md-2 w3layouts-brand">
+                <div class="brands-w3l">
+                    <p><a href="#">Intel</a></p>
+                </div>
+            </div>
+            <div class="col-md-2 w3layouts-brand">
+                <div class="brands-w3l">
+                    <p><a href="#">AMD</a></p>
+                </div>
+            </div>
+            <div class="col-md-2 w3layouts-brand">
+                <div class="brands-w3l">
+                    <p><a href="#">Canon</a></p>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+<!--//brands-->

@@ -1,4 +1,5 @@
 ﻿using ProjectAD.Models.ViewModels;
+using ProjectAD.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace ProjectAD.Controllers
 {
     public class TestController : Controller
     {
+        public ADprojectEntities ADprojectEntities = new ADprojectEntities();
         public int key = 0;
         public ListTest lt = new ListTest();
 
@@ -49,7 +51,7 @@ namespace ProjectAD.Controllers
             var cartItem = lt.tests.SingleOrDefault(c => c.Id == id);
             if (cartItem == null)
             {
-                Response.Write("<script>window.location.href='../../../Test/Index';alert('You do not have that item')</script>");
+                Response.Write("<script>window.location.href='../../../Test/Index';alert('')</script>");
                 //return RedirectToAction("Index");
             }
             else
@@ -62,5 +64,6 @@ namespace ProjectAD.Controllers
             return View();
         }
        
+
     }
 }

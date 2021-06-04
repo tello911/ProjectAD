@@ -25,6 +25,26 @@ namespace ProjectAD
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            #region Template Design
+
+            bundles.Add(new ScriptBundle("~/template/js").Include(
+                        "~/Scripts/jquery-1.11.1.min.js",
+                        "~/Scripts/move-top.js",
+                        "~/Scripts/easing.js",
+                        "~/Scripts/bootstrap.min.js",
+                        "~/Scripts/minicart.min.js",
+                        "~/Scripts/skdslider.min.js"
+
+                        ));
+
+
+            bundles.Add(new StyleBundle("~/template/css").Include(
+                      "~/Content/css/bootstrap.css",
+                      "~/Content/css/style.css",
+                      "~/Content/css/font-awesome.css",
+                      "~/Content/css/skdslider.css"));
+            #endregion
         }
     }
 }

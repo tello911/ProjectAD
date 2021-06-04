@@ -19,9 +19,7 @@ namespace ProjectAD.Controllers
             {
                 var data = db.Products.ToList();
                 return View(data);
-            }
-                
-            
+            }          
         }
 
         // GET: Customers/Details/5
