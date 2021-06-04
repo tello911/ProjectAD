@@ -58,5 +58,41 @@ namespace ProjectAD.Controllers
             Response.Write("<script>alert('Please check your detail again');window.location = '/Home/Login';</script>");
             return View(user);
         }
+
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Register(User model)
+        {
+            User obj = new User();
+            obj.username = model.username;
+            //obj.userpassword = model.userpassword;
+            obj.useremail = model.useremail;
+            obj.usercontact = model.usercontact;
+            obj.useraddress = model.useraddress;
+
+
+            try
+            {
+                using (ADprojectEntities dbObj = new ADprojectEntities())
+                {
+                    dbObj.Users.Add(obj);
+                    dbObj.SaveChanges();
+                }
+                return View("Index");
+            }
+
+            catch
+            {
+                ViewBag.SuccessMessage = "Registration Successful";
+                return View("Register", new User());
+            }
+
+
+        }
     }
 }
