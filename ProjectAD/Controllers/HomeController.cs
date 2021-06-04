@@ -83,7 +83,7 @@ namespace ProjectAD.Controllers
                     dbObj.Users.Add(obj);
                     dbObj.SaveChanges();
                 }
-                return View("Index");
+                return RedirectToAction("Index", "Home");
             }
 
             catch

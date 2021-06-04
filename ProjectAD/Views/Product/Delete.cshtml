@@ -1,0 +1,73 @@
+﻿@model ProjectAD.Models.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.productname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productprice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productprice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productdesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productdesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productimage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productimage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prodcategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prodcategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.produpdatedate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.produpdatedate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

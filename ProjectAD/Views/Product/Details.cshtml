@@ -1,0 +1,67 @@
+﻿@model ProjectAD.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.productname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productprice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productprice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productdesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productdesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productimage)
+        </dt>
+
+        <dd>
+            <img src="~/Content/Products/@Html.DisplayFor(model => model.productimage)" alt="Image @Html.DisplayNameFor(model => model.productname)" height="200" width="200" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.prodcategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prodcategory)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.produpdatedate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.produpdatedate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.productid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

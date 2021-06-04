@@ -13,6 +13,7 @@ namespace ProjectAD.Models
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
+    using System.Web;
 
     public partial class Product
     {
@@ -35,5 +36,6 @@ namespace ProjectAD.Models
         [DisplayName("Product Update Dates")]
         [Required]
         public Nullable<System.DateTime> produpdatedate { get; set; }
+        public HttpPostedFileBase ImageFile { get; set; }
     }
 }
