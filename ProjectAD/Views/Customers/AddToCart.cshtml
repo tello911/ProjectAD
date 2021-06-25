@@ -1,0 +1,95 @@
+﻿@model IEnumerable<ProjectAD.Models.Product>
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>Add</h2>
+@using (Html.BeginForm("Category", "Customers", FormMethod.Post, new { }))
+{
+<select name="category" onchange="this.form.submit()">
+    <option>Select Category</option>
+    <option value="All">All Category</option>
+    @foreach(var item in ViewBag.CategoryList as IEnumerable<ProjectAD.Models.Product_Category>)
+    {
+        <option value=@item.categoryname>@item.categoryname</option>
+    }
+</select>
+}
+
+
+<div new { style="margin-bottom:200px;" }>
+    @{  
+        ViewBag.list = Model;
+        if(Session["category"] == null)
+        {
+            Session["category"] = "All";
+        }
+        if (!Session["category"].Equals("All"))
+        {
+            ViewBag.list = Model.Where(a => a.Product_Category.categoryname.Equals(Session["category"]));
+        }
+     }
+    @foreach (var item in ViewBag.list as IEnumerable<ProjectAD.Models.Product>)
+    {
+        <div class="col-md-6 col-lg-6">
+            <div class="card">
+                <div class="card-body" style="text-align:center;">
+                    <div class="plan-pic">
+                        <img src="~/Content/Products/@Html.DisplayFor(modelItem => item.productimage)" alt="Image @item.productid" height="100%" width="100%" />
+                    </div>
+                    <div class="plan-name">
+                        @Html.DisplayFor(modelItem => item.productname)
+                    </div>
+                    <div class="plan-description">
+                        <div class="plan-price month">
+                            RM @Html.DisplayFor(modelItem => item.productprice)
+                        </div>
+                        <p>@Html.DisplayFor(modelItem => item.productdesc)</p>
+                    </div>
+                    <div class="plan-description specs">
+                        @Html.DisplayFor(modelItem => item.Product_Category.categoryname)
+                    </div>
+
+                    @*<div class="plan-cta">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.productid }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.productid }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.productid },new { onclick = "return confirm('Are you sure?');" })
+                        </div>*@
+                    @using (Html.BeginForm("AddToCart", "Customers", FormMethod.Post))
+                    {
+                        <input type="hidden" name="k" value=@item.productid required />
+                        <input type="hidden" name="productname" value=@item.productname required />
+
+                        if (@item.productquantity <= 0)
+                        {
+                            <button class="btn-danger">No Stock</button>
+                        }
+                        else
+                        {
+                            <input type="number" name="count" required />
+                            <input type="submit" value="Add To Cart" />
+                        }
+
+                    }
+                    <div>
+                        @*<button class="btn btn-primary">@Html.ActionLink("Edit", "Edit", new { id = item.productid }, new { style = "color:white;" })</button>*@
+                    </div>
+                    <br /><br />
+                </div>
+            </div>
+        </div>
+
+    }
+
+</div>
+
+@*<select name="test">
+    <option value="">Select Item</option>
+    @foreach (var item in Model)
+    {
+        <option value=@item.productid>@item.productname</option>
+    }
+</select>*@
+
+

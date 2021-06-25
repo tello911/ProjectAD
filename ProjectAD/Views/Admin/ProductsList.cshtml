@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ProjectAD.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Add New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.productname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productprice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productdesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productimage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.productcategory)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.productname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.productprice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.productdesc)
+            </td>
+            <td>
+                <img src="~/Content/Products/@Html.DisplayFor(modelItem => item.productimage)" alt="Image @item.productid" height="200" width="200" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.productcategory)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.productid }) |
+                @Html.ActionLink("Details", "Details", new { id = item.productid }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.productid })
+            </td>
+        </tr>
+    }
+
+</table>

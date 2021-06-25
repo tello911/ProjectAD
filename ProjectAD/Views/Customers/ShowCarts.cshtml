@@ -1,0 +1,66 @@
+﻿@model List<ProjectAD.Models.ViewModels.Cart>
+
+@{
+    ViewBag.Title = "ShowCarts";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+<h2>ShowCarts</h2>
+<h2>Index</h2>
+@using (Html.BeginForm("Lol", "Customers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Count</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                ViewBag.restrict = false;
+                ViewBag.item = false;
+            }
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><h4>@item.Id</h4></td>
+                    <td><h4>@item.Name</h4></td>
+                    <td>
+                        @{
+                            ViewBag.item = true;
+                            var limit = ((ViewBag.Limit as ICollection<ProjectAD.Models.Product>).Where(a => a.productid == item.Id).FirstOrDefault().productquantity);
+                        }
+                        @if (item.Count >= (ViewBag.Limit as ICollection<ProjectAD.Models.Product>).Where(a => a.productid == item.Id).FirstOrDefault().productquantity)
+                        {
+                            <h3>The limit is @limit</h3>
+                            ViewBag.restrict = true;
+                            item.Count = limit;
+                        }
+
+                        <h4><input type="number" name="count[]" min="0" max=@limit value=@item.Count></h4>
+
+
+                    </td>
+                    <td>
+                        <h4>
+                            @Html.ActionLink("Edit", "AddToCart", new { id = item.Id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "DeleteCart", new { id = item.Id })
+                        </h4>
+                    </td>
+                </tr>
+                            }
+        </tbody>
+    </table>
+    @ViewBag.lol
+    if (!ViewBag.restrict && ViewBag.item)
+    {
+        <button class="btn btn-primary">
+            @Html.ActionLink("Submit", "Submit", null, new { style = "color:white;" })
+        </button>
+
+    }
+    <input type="submit" value="Submit" />
+    }

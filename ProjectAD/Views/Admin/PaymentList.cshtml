@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ProjectAD.Models.Payment>
+
+@{
+    ViewBag.Title = "PaymentList";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>PaymentList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.paymentfile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.paymentdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.paymentstatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order_Details.detailshipname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.username)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.paymentfile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paymentdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.paymentstatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order_Details.detailshipname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.username)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.paymentid }) |
+            @Html.ActionLink("Details", "Details", new { id = item.paymentid }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.paymentid }) |
+            @Html.ActionLink("Approve", "ApprovePayment", new { id = item.paymentid }) |
+            @Html.ActionLink("Reject", "RejectPayment", new { id = item.paymentid }) |
+        </td>
+    </tr>
+}
+
+</table>

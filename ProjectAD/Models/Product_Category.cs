@@ -14,7 +14,16 @@ namespace ProjectAD.Models
     
     public partial class Product_Category
     {
-        public int prodcategoryid { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product_Category()
+        {
+            this.Products = new HashSet<Product>();
+        }
+    
+        public int categoryid { get; set; }
         public string categoryname { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Product> Products { get; set; }
     }
 }

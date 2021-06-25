@@ -4,13 +4,24 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f433decb1acb4fa8a676eac4164c481a" Name="Diagram1">
+      <Diagram DiagramId="f63a754273fc40049fef5acfe7bfe04d" Name="Diagram1" ZoomLevel="98">
+        <EntityTypeShape EntityType="ADprojectModel.Admin" Width="1.5" PointX="3.75" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ADprojectModel.Order_Detail" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ADprojectModel.Order" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ADprojectModel.Payment" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ADprojectModel.Product_Category" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ADprojectModel.Product" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ADprojectModel.User" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADprojectModel.Order" Width="1.5" PointX="3" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADprojectModel.Parcel" Width="1.5" PointX="8.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADprojectModel.Payment" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADprojectModel.Product_Category" Width="1.5" PointX="1.5" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADprojectModel.Product" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADprojectModel.Shipping" Width="1.5" PointX="1.5" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADprojectModel.User" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="ADprojectModel.FK_Order_Details_Shipping" ManuallyRouted="false" />
+        <AssociationConnector Association="ADprojectModel.FK_Orders_Order_Details" ManuallyRouted="false" />
+        <AssociationConnector Association="ADprojectModel.FK_Payment_Order_Details" ManuallyRouted="false" />
+        <AssociationConnector Association="ADprojectModel.FK_Orders_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="ADprojectModel.FK_Orders_User" ManuallyRouted="false" />
+        <AssociationConnector Association="ADprojectModel.FK_Parcel_Payment" ManuallyRouted="false" />
+        <AssociationConnector Association="ADprojectModel.FK_Payment_User" ManuallyRouted="false" />
+        <AssociationConnector Association="ADprojectModel.FK_Products_Product_Category" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

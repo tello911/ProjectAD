@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ProjectAD.Models.Admin>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.adminname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.admincontact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adminpass)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adminstatus)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.adminname)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.admincontact)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.adminpass)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.adminstatus)
+    </td>
+    <td>
+        @*@Html.ActionLink("Edit", "Edit", new { id = item.adminid }) |*@
+        @Html.ActionLink("Details", "Details", new { id = item.adminid }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.adminid },new { onclick = "return confirm('Are you sure?');" }) |
+        @Html.ActionLink("Approve", "Approve", new { id = item.adminid }) |
+        @Html.ActionLink("Reject", "Reject", new { id = item.adminid })
+    </td>
+</tr>
+}
+
+</table>

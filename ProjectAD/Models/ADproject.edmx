@@ -4,148 +4,487 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ADprojectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ADprojectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="adminid" />
+          </Key>
+          <Property Name="adminid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adminname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="admincontact" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="adminpass" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="adminstatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="Order Details">
           <Key>
-            <PropertyRef Name="detailid" />
+            <PropertyRef Name="detailorderid" />
           </Key>
-          <Property Name="detailid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="detailorderid" Type="int" />
-          <Property Name="detailprice" Type="nvarchar" MaxLength="50" />
-          <Property Name="detailproductid" Type="int" />
-          <Property Name="orderpayment" Type="int" />
+          <Property Name="detailorderid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="detailtotalprice" Type="float" Nullable="false" />
+          <Property Name="detailshipname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="detailshipaddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="detailcontact" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="detailorderdate" Type="date" Nullable="false" />
+          <Property Name="detailcourierid" Type="int" Nullable="false" />
+          <Property Name="detailuserid" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Orders">
           <Key>
             <PropertyRef Name="orderid" />
           </Key>
-          <Property Name="orderid" Type="int" Nullable="false" />
-          <Property Name="orderuserid" Type="nvarchar" MaxLength="50" />
-          <Property Name="orderquantity" Type="nvarchar" MaxLength="50" />
-          <Property Name="ordershipname" Type="nvarchar" MaxLength="100" />
-          <Property Name="ordershipaddress" Type="nvarchar" MaxLength="100" />
-          <Property Name="ordercontact" Type="nvarchar" MaxLength="50" />
-          <Property Name="ordertracking" Type="nvarchar" MaxLength="50" />
-          <Property Name="orderdate" Type="date" />
+          <Property Name="orderid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="orderuserid" Type="int" Nullable="false" />
+          <Property Name="orderquantity" Type="int" Nullable="false" />
+          <Property Name="orderproductid" Type="int" Nullable="false" />
+          <Property Name="orderprodprice" Type="float" Nullable="false" />
+          <Property Name="orderdetailid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Parcel">
+          <Key>
+            <PropertyRef Name="parcelid" />
+          </Key>
+          <Property Name="parcelid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="parceltracknum" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="parcelpayment" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Payment">
           <Key>
             <PropertyRef Name="paymentid" />
           </Key>
           <Property Name="paymentid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="paymentuser" Type="nvarchar" MaxLength="50" />
-          <Property Name="paymentfile" Type="nvarchar" MaxLength="50" />
-          <Property Name="paymentdate" Type="date" />
+          <Property Name="paymentuser" Type="int" Nullable="false" />
+          <Property Name="paymentfile" Type="nvarchar" MaxLength="255" />
+          <Property Name="paymentdate" Type="date" Nullable="false" />
+          <Property Name="paymentstatus" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="paymentorderdetails" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Product Category">
           <Key>
-            <PropertyRef Name="prodcategoryid" />
+            <PropertyRef Name="categoryid" />
           </Key>
-          <Property Name="prodcategoryid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="categoryname" Type="nvarchar" MaxLength="50" />
+          <Property Name="categoryid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="categoryname" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Products">
           <Key>
             <PropertyRef Name="productid" />
           </Key>
           <Property Name="productid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="productname" Type="nvarchar" MaxLength="50" />
-          <Property Name="productprice" Type="nvarchar" MaxLength="50" />
-          <Property Name="productdesc" Type="nvarchar" MaxLength="50" />
-          <Property Name="productimage" Type="nvarchar" MaxLength="50" />
-          <Property Name="prodcategory" Type="int" />
-          <Property Name="produpdatedate" Type="date" />
+          <Property Name="productname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="productprice" Type="float" Nullable="false" />
+          <Property Name="productdesc" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="productimage" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="productcategory" Type="int" Nullable="false" />
+          <Property Name="productupdatedate" Type="date" Nullable="false" />
+          <Property Name="productquantity" Type="int" Nullable="false" />
         </EntityType>
-        <EntityType Name="Users">
+        <EntityType Name="Shipping">
+          <Key>
+            <PropertyRef Name="shippingid" />
+          </Key>
+          <Property Name="shippingid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="shippingcourier" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
           <Key>
             <PropertyRef Name="userid" />
           </Key>
           <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="username" Type="nvarchar" MaxLength="50" />
-          <Property Name="useremail" Type="nvarchar" MaxLength="50" />
-          <Property Name="usercontact" Type="nvarchar" MaxLength="50" />
-          <Property Name="useraddress" Type="nvarchar" MaxLength="100" />
+          <Property Name="username" Type="nvarchar" MaxLength="75" Nullable="false" />
+          <Property Name="useremail" Type="nvarchar" MaxLength="75" Nullable="false" />
+          <Property Name="usercontact" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="useraddress" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="userpass" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Order Details_Shipping">
+          <End Role="Shipping" Type="Self.Shipping" Multiplicity="1" />
+          <End Role="Order Details" Type="Self.Order Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shipping">
+              <PropertyRef Name="shippingid" />
+            </Principal>
+            <Dependent Role="Order Details">
+              <PropertyRef Name="detailcourierid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Order Details">
+          <End Role="Order Details" Type="Self.Order Details" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order Details">
+              <PropertyRef Name="detailorderid" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="orderdetailid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Products">
+          <End Role="Products" Type="Self.Products" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="productid" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="orderproductid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userid" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="orderuserid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Parcel_Payment">
+          <End Role="Payment" Type="Self.Payment" Multiplicity="1" />
+          <End Role="Parcel" Type="Self.Parcel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment">
+              <PropertyRef Name="paymentid" />
+            </Principal>
+            <Dependent Role="Parcel">
+              <PropertyRef Name="parcelpayment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payment_Order Details">
+          <End Role="Order Details" Type="Self.Order Details" Multiplicity="1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order Details">
+              <PropertyRef Name="detailorderid" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="paymentorderdetails" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payment_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userid" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="paymentuser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Product Category">
+          <End Role="Product Category" Type="Self.Product Category" Multiplicity="1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product Category">
+              <PropertyRef Name="categoryid" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="productcategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ADprojectModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Order Details" EntityType="Self.Order Details" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Parcel" EntityType="Self.Parcel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product Category" EntityType="Self.Product Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shipping" EntityType="Self.Shipping" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Order Details_Shipping" Association="Self.FK_Order Details_Shipping">
+            <End Role="Shipping" EntitySet="Shipping" />
+            <End Role="Order Details" EntitySet="Order Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Order Details" Association="Self.FK_Orders_Order Details">
+            <End Role="Order Details" EntitySet="Order Details" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Products" Association="Self.FK_Orders_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_User" Association="Self.FK_Orders_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Parcel_Payment" Association="Self.FK_Parcel_Payment">
+            <End Role="Payment" EntitySet="Payment" />
+            <End Role="Parcel" EntitySet="Parcel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_Order Details" Association="Self.FK_Payment_Order Details">
+            <End Role="Order Details" EntitySet="Order Details" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_User" Association="Self.FK_Payment_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Product Category" Association="Self.FK_Products_Product Category">
+            <End Role="Product Category" EntitySet="Product Category" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ADprojectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="adminid" />
+          </Key>
+          <Property Name="adminid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adminname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="admincontact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="adminpass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="adminstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
         <EntityType Name="Order_Detail">
           <Key>
-            <PropertyRef Name="detailid" />
+            <PropertyRef Name="detailorderid" />
           </Key>
-          <Property Name="detailid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="detailorderid" Type="Int32" />
-          <Property Name="detailprice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="detailproductid" Type="Int32" />
-          <Property Name="orderpayment" Type="Int32" />
+          <Property Name="detailorderid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="detailtotalprice" Type="Double" Nullable="false" />
+          <Property Name="detailshipname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="detailshipaddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="detailcontact" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="detailorderdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="detailcourierid" Type="Int32" Nullable="false" />
+          <Property Name="detailuserid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Shipping" Relationship="Self.FK_Order_Details_Shipping" FromRole="Order_Details" ToRole="Shipping" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Order_Details" FromRole="Order_Details" ToRole="Orders" />
+          <NavigationProperty Name="Payments" Relationship="Self.FK_Payment_Order_Details" FromRole="Order_Details" ToRole="Payment" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
             <PropertyRef Name="orderid" />
           </Key>
-          <Property Name="orderid" Type="Int32" Nullable="false" />
-          <Property Name="orderuserid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="orderquantity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ordershipname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ordershipaddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="ordercontact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ordertracking" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="orderdate" Type="DateTime" Precision="0" />
+          <Property Name="orderid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="orderuserid" Type="Int32" Nullable="false" />
+          <Property Name="orderquantity" Type="Int32" Nullable="false" />
+          <Property Name="orderproductid" Type="Int32" Nullable="false" />
+          <Property Name="orderprodprice" Type="Double" Nullable="false" />
+          <Property Name="orderdetailid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Order_Details" Relationship="Self.FK_Orders_Order_Details" FromRole="Orders" ToRole="Order_Details" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Orders_Products" FromRole="Orders" ToRole="Products" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Orders_User" FromRole="Orders" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Parcel">
+          <Key>
+            <PropertyRef Name="parcelid" />
+          </Key>
+          <Property Name="parcelid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="parceltracknum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="parcelpayment" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Payment" Relationship="Self.FK_Parcel_Payment" FromRole="Parcel" ToRole="Payment" />
         </EntityType>
         <EntityType Name="Payment">
           <Key>
             <PropertyRef Name="paymentid" />
           </Key>
           <Property Name="paymentid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="paymentuser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="paymentfile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="paymentdate" Type="DateTime" Precision="0" />
+          <Property Name="paymentuser" Type="Int32" Nullable="false" />
+          <Property Name="paymentfile" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="paymentdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="paymentstatus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="paymentorderdetails" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Order_Details" Relationship="Self.FK_Payment_Order_Details" FromRole="Payment" ToRole="Order_Details" />
+          <NavigationProperty Name="Parcels" Relationship="Self.FK_Parcel_Payment" FromRole="Payment" ToRole="Parcel" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Payment_User" FromRole="Payment" ToRole="User" />
         </EntityType>
         <EntityType Name="Product_Category">
           <Key>
-            <PropertyRef Name="prodcategoryid" />
+            <PropertyRef Name="categoryid" />
           </Key>
-          <Property Name="prodcategoryid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="categoryname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="categoryid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="categoryname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Products_Product_Category" FromRole="Product_Category" ToRole="Products" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
             <PropertyRef Name="productid" />
           </Key>
           <Property Name="productid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="productname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="productprice" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="productdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="productimage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="prodcategory" Type="Int32" />
-          <Property Name="produpdatedate" Type="DateTime" Precision="0" />
+          <Property Name="productname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="productprice" Type="Double" Nullable="false" />
+          <Property Name="productdesc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="productimage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="productcategory" Type="Int32" Nullable="false" />
+          <Property Name="productupdatedate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="productquantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Products" FromRole="Products" ToRole="Orders" />
+          <NavigationProperty Name="Product_Category" Relationship="Self.FK_Products_Product_Category" FromRole="Products" ToRole="Product_Category" />
+        </EntityType>
+        <EntityType Name="Shipping">
+          <Key>
+            <PropertyRef Name="shippingid" />
+          </Key>
+          <Property Name="shippingid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="shippingcourier" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Order_Details" Relationship="Self.FK_Order_Details_Shipping" FromRole="Shipping" ToRole="Order_Details" />
         </EntityType>
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="userid" />
           </Key>
           <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="useremail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="usercontact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="useraddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="username" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="useremail" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="usercontact" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="useraddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="userpass" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_User" FromRole="User" ToRole="Orders" />
+          <NavigationProperty Name="Payments" Relationship="Self.FK_Payment_User" FromRole="User" ToRole="Payment" />
         </EntityType>
+        <Association Name="FK_Order_Details_Shipping">
+          <End Role="Shipping" Type="Self.Shipping" Multiplicity="1" />
+          <End Role="Order_Details" Type="Self.Order_Detail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shipping">
+              <PropertyRef Name="shippingid" />
+            </Principal>
+            <Dependent Role="Order_Details">
+              <PropertyRef Name="detailcourierid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Order_Details">
+          <End Role="Order_Details" Type="Self.Order_Detail" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order_Details">
+              <PropertyRef Name="detailorderid" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="orderdetailid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payment_Order_Details">
+          <End Role="Order_Details" Type="Self.Order_Detail" Multiplicity="1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order_Details">
+              <PropertyRef Name="detailorderid" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="paymentorderdetails" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Products">
+          <End Role="Products" Type="Self.Product" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="productid" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="orderproductid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userid" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="orderuserid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Parcel_Payment">
+          <End Role="Payment" Type="Self.Payment" Multiplicity="1" />
+          <End Role="Parcel" Type="Self.Parcel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment">
+              <PropertyRef Name="paymentid" />
+            </Principal>
+            <Dependent Role="Parcel">
+              <PropertyRef Name="parcelpayment" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Payment_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="userid" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="paymentuser" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Product_Category">
+          <End Role="Product_Category" Type="Self.Product_Category" Multiplicity="1" />
+          <End Role="Products" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product_Category">
+              <PropertyRef Name="categoryid" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="productcategory" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ADprojectEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
           <EntitySet Name="Order_Details" EntityType="Self.Order_Detail" />
           <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="Parcels" EntityType="Self.Parcel" />
           <EntitySet Name="Payments" EntityType="Self.Payment" />
           <EntitySet Name="Product_Categories" EntityType="Self.Product_Category" />
           <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="Shippings" EntityType="Self.Shipping" />
           <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_Order_Details_Shipping" Association="Self.FK_Order_Details_Shipping">
+            <End Role="Shipping" EntitySet="Shippings" />
+            <End Role="Order_Details" EntitySet="Order_Details" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Order_Details" Association="Self.FK_Orders_Order_Details">
+            <End Role="Order_Details" EntitySet="Order_Details" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_Order_Details" Association="Self.FK_Payment_Order_Details">
+            <End Role="Order_Details" EntitySet="Order_Details" />
+            <End Role="Payment" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Products" Association="Self.FK_Orders_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_User" Association="Self.FK_Orders_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Parcel_Payment" Association="Self.FK_Parcel_Payment">
+            <End Role="Payment" EntitySet="Payments" />
+            <End Role="Parcel" EntitySet="Parcels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_User" Association="Self.FK_Payment_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Payment" EntitySet="Payments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Product_Category" Association="Self.FK_Products_Product_Category">
+            <End Role="Product_Category" EntitySet="Product_Categories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -153,14 +492,28 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ADprojectModelStoreContainer" CdmEntityContainer="ADprojectEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="ADprojectModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="adminid" ColumnName="adminid" />
+                <ScalarProperty Name="adminname" ColumnName="adminname" />
+                <ScalarProperty Name="admincontact" ColumnName="admincontact" />
+                <ScalarProperty Name="adminpass" ColumnName="adminpass" />
+                <ScalarProperty Name="adminstatus" ColumnName="adminstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Order_Details">
             <EntityTypeMapping TypeName="ADprojectModel.Order_Detail">
               <MappingFragment StoreEntitySet="Order Details">
-                <ScalarProperty Name="detailid" ColumnName="detailid" />
                 <ScalarProperty Name="detailorderid" ColumnName="detailorderid" />
-                <ScalarProperty Name="detailprice" ColumnName="detailprice" />
-                <ScalarProperty Name="detailproductid" ColumnName="detailproductid" />
-                <ScalarProperty Name="orderpayment" ColumnName="orderpayment" />
+                <ScalarProperty Name="detailtotalprice" ColumnName="detailtotalprice" />
+                <ScalarProperty Name="detailshipname" ColumnName="detailshipname" />
+                <ScalarProperty Name="detailshipaddress" ColumnName="detailshipaddress" />
+                <ScalarProperty Name="detailcontact" ColumnName="detailcontact" />
+                <ScalarProperty Name="detailorderdate" ColumnName="detailorderdate" />
+                <ScalarProperty Name="detailcourierid" ColumnName="detailcourierid" />
+                <ScalarProperty Name="detailuserid" ColumnName="detailuserid" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -170,11 +523,18 @@
                 <ScalarProperty Name="orderid" ColumnName="orderid" />
                 <ScalarProperty Name="orderuserid" ColumnName="orderuserid" />
                 <ScalarProperty Name="orderquantity" ColumnName="orderquantity" />
-                <ScalarProperty Name="ordershipname" ColumnName="ordershipname" />
-                <ScalarProperty Name="ordershipaddress" ColumnName="ordershipaddress" />
-                <ScalarProperty Name="ordercontact" ColumnName="ordercontact" />
-                <ScalarProperty Name="ordertracking" ColumnName="ordertracking" />
-                <ScalarProperty Name="orderdate" ColumnName="orderdate" />
+                <ScalarProperty Name="orderproductid" ColumnName="orderproductid" />
+                <ScalarProperty Name="orderprodprice" ColumnName="orderprodprice" />
+                <ScalarProperty Name="orderdetailid" ColumnName="orderdetailid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parcels">
+            <EntityTypeMapping TypeName="ADprojectModel.Parcel">
+              <MappingFragment StoreEntitySet="Parcel">
+                <ScalarProperty Name="parcelid" ColumnName="parcelid" />
+                <ScalarProperty Name="parceltracknum" ColumnName="parceltracknum" />
+                <ScalarProperty Name="parcelpayment" ColumnName="parcelpayment" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -185,13 +545,15 @@
                 <ScalarProperty Name="paymentuser" ColumnName="paymentuser" />
                 <ScalarProperty Name="paymentfile" ColumnName="paymentfile" />
                 <ScalarProperty Name="paymentdate" ColumnName="paymentdate" />
+                <ScalarProperty Name="paymentstatus" ColumnName="paymentstatus" />
+                <ScalarProperty Name="paymentorderdetails" ColumnName="paymentorderdetails" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Product_Categories">
             <EntityTypeMapping TypeName="ADprojectModel.Product_Category">
               <MappingFragment StoreEntitySet="Product Category">
-                <ScalarProperty Name="prodcategoryid" ColumnName="prodcategoryid" />
+                <ScalarProperty Name="categoryid" ColumnName="categoryid" />
                 <ScalarProperty Name="categoryname" ColumnName="categoryname" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -204,19 +566,29 @@
                 <ScalarProperty Name="productprice" ColumnName="productprice" />
                 <ScalarProperty Name="productdesc" ColumnName="productdesc" />
                 <ScalarProperty Name="productimage" ColumnName="productimage" />
-                <ScalarProperty Name="prodcategory" ColumnName="prodcategory" />
-                <ScalarProperty Name="produpdatedate" ColumnName="produpdatedate" />
+                <ScalarProperty Name="productcategory" ColumnName="productcategory" />
+                <ScalarProperty Name="productupdatedate" ColumnName="productupdatedate" />
+                <ScalarProperty Name="productquantity" ColumnName="productquantity" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shippings">
+            <EntityTypeMapping TypeName="ADprojectModel.Shipping">
+              <MappingFragment StoreEntitySet="Shipping">
+                <ScalarProperty Name="shippingid" ColumnName="shippingid" />
+                <ScalarProperty Name="shippingcourier" ColumnName="shippingcourier" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="ADprojectModel.User">
-              <MappingFragment StoreEntitySet="Users">
+              <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="userid" ColumnName="userid" />
                 <ScalarProperty Name="username" ColumnName="username" />
                 <ScalarProperty Name="useremail" ColumnName="useremail" />
                 <ScalarProperty Name="usercontact" ColumnName="usercontact" />
                 <ScalarProperty Name="useraddress" ColumnName="useraddress" />
+                <ScalarProperty Name="userpass" ColumnName="userpass" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

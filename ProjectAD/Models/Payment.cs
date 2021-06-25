@@ -11,12 +11,28 @@ namespace ProjectAD.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web;
+
     public partial class Payment
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Payment()
+        {
+            this.Parcels = new HashSet<Parcel>();
+        }
+    
         public int paymentid { get; set; }
-        public string paymentuser { get; set; }
+        public int paymentuser { get; set; }
         public string paymentfile { get; set; }
-        public Nullable<System.DateTime> paymentdate { get; set; }
+        public System.DateTime paymentdate { get; set; }
+        public string paymentstatus { get; set; }
+        public int paymentorderdetails { get; set; }
+        public HttpPostedFileBase ImageFile { get; set; }
+
+
+        public virtual Order_Detail Order_Details { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Parcel> Parcels { get; set; }
+        public virtual User User { get; set; }
     }
 }

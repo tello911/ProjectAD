@@ -1077,33 +1077,8 @@ a.w3_agile_vimeo:hover{
 .checkout h2 span{
 	color:#3399cc;
 }
-table.timetable_sub {
-	width:100%;
-	margin:0 auto;
-}
-.timetable_sub thead {
-    background: #004284;
-}
-.timetable_sub th {
-    background: #fe9126;
-    color: #fff !important;
-    text-transform: capitalize;
-    font-size: 13px;
-    border-right: 1px solid #fe9126;
-}
-.timetable_sub th, .timetable_sub td {
-    text-align: center;
-    padding: 7px;
-    font-size: 14px;
-    color: #212121;
-}
-.timetable_sub td {
-	border:1px solid #CDCDCD;
-}
-td.invert-image a img {
-    width:30%;
-    margin: 0 auto;
-}
+
+
 .rem{
 	position:relative;
 }
@@ -1386,15 +1361,7 @@ ul.faq {
 .products {
     padding: 5em 0;
 }
-.sorting{
-	float:right;
-	width: 35%;
-}
-.sorting-left{
-	float: right;
-    margin-right: 2em;
-    width: 25%;
-}
+
 select#country,select#country1 {
     border: 1px solid #212121;
     outline: none;
@@ -2635,9 +2602,7 @@ ul.phone_email li {
 .login h4 {
     font-size: 1.3em;
 }
-.timetable_sub th, .timetable_sub td {
-    font-size: 12px;
-}
+
 .checkout-left-basket {
     width: 34%;
 }
@@ -2929,12 +2894,8 @@ ul.faq {
 .checkout-left-basket {
     width: 49%;
 }
-td.invert-image a img {
-    width: 65%;
-}
-.timetable_sub th, .timetable_sub td {
-    width: 50px;
-}
+
+
 .value {
     width: 17px;
     height: 17px;
@@ -2944,9 +2905,7 @@ td.invert-image a img {
     height: 17px;
     width: 17px;
 }
-.timetable_sub th, .timetable_sub td {
-    padding: 7px 0px;
-}
+
 }
 @media (max-width: 480px){
 #PPMiniCart form {
@@ -2993,12 +2952,7 @@ p.w3l-ad {
 .w3_footer_grid h3 {
     margin-bottom: 1em;
 }
-.sorting {
-    width: 44%;
-}
-.sorting-left {
-    width: 42%;
-}
+
 h3.w3_agile_header, h2.w3_agile_header {
     font-size: 1.7em;
 }
@@ -3269,13 +3223,7 @@ p.w3l-ad {
 .w3_footer_grid {
     padding: 0;
 }
-.sorting-left {
-    width: 47%;
-	margin-right: 2%;
-}
-.sorting {
-    width: 51%;
-}
+
 .products {
     padding: 2em 0;
 }
@@ -3375,9 +3323,7 @@ ul.faq {
 .value {
     margin: 4px 10px;
 }
-td.invert-image a img {
-    width: 72%;
-}
+
 .agileinfo_single h2 {
     font-size: 0.95em;
 }

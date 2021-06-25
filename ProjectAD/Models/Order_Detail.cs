@@ -14,12 +14,26 @@ namespace ProjectAD.Models
     
     public partial class Order_Detail
     {
-        public int detailid { get; set; }
-        public Nullable<int> detailorderid { get; set; }
-        public string detailprice { get; set; }
-        public Nullable<int> detailproductid { get; set; }
-        public Nullable<int> orderpayment { get; set; }
-        public virtual Product_Category Product_Category { get; set; }
-        public virtual Order Order { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Order_Detail()
+        {
+            this.Orders = new HashSet<Order>();
+            this.Payments = new HashSet<Payment>();
+        }
+    
+        public int detailorderid { get; set; }
+        public double detailtotalprice { get; set; }
+        public string detailshipname { get; set; }
+        public string detailshipaddress { get; set; }
+        public string detailcontact { get; set; }
+        public System.DateTime detailorderdate { get; set; }
+        public int detailcourierid { get; set; }
+        public int detailuserid { get; set; }
+    
+        public virtual Shipping Shipping { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Orders { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Payment> Payments { get; set; }
     }
 }

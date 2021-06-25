@@ -12,6 +12,7 @@ namespace ProjectAD.Controllers
     public class ProductController : Controller
     {
         // GET: Product/Index
+        ADprojectEntities dbModel = new ADprojectEntities();
         public ActionResult Index()
         {
             using (ADprojectEntities dbModel = new ADprojectEntities())
@@ -36,22 +37,41 @@ namespace ProjectAD.Controllers
             return View();
         }
 
+        public ActionResult Add()
+        {
+            ViewBag.Product_Category = dbModel.Product_Categories.ToList();
+            return View();
+        }
         // POST: image upload
         [HttpPost]
-        public ActionResult Add(Product imageModel)
+        public ActionResult Add(Product imageModel, int category)
         {
             string fileName = Path.GetFileNameWithoutExtension(imageModel.ImageFile.FileName);
             string extension = Path.GetExtension(imageModel.ImageFile.FileName);
-            fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+            fileName = fileName + imageModel.productcategory + extension ;
             imageModel.productimage = "~/Image/" + fileName;
             fileName = Path.Combine(Server.MapPath("~/Image/"), fileName);
             imageModel.ImageFile.SaveAs(fileName);
-            using (ADprojectEntities db = new ADprojectEntities())
+
+            var lol = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
+            imageModel.productupdatedate = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd"));
+            imageModel.productcategory = category;
+
+            
+            if (ModelState.IsValid)
             {
-                db.Products.Add(imageModel);
-                db.SaveChanges();
+                try
+                {
+                    dbModel.Products.Add(imageModel);
+                    dbModel.SaveChanges();
+
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    return View();
+                }
             }
-            ModelState.Clear();
             return View();
         }
 

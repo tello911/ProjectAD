@@ -1,0 +1,81 @@
+﻿@model ProjectAD.Models.Order
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.orderuserid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderuserid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.orderquantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderquantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ordershipname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ordershipname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ordershipaddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ordershipaddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ordercontact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ordercontact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ordertracking)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ordertracking)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.orderdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.orderdate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

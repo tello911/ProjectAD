@@ -2,7 +2,6 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
 }
 
 <h2>Index</h2>
@@ -25,7 +24,7 @@
             @Html.DisplayNameFor(model => model.productimage)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.prodcategory)
+            @Html.DisplayNameFor(model => model.productcategory)
         </th>
         <th></th>
     </tr>
@@ -46,10 +45,10 @@
                 <img src="~/Content/Products/@Html.DisplayFor(modelItem => item.productimage)" alt="Image @item.productid" height="200" width="200" />
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.prodcategory)
+                @Html.DisplayFor(modelItem => item.productcategory)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.productid }) |
+                @Html.ActionLink("Edit", "Edit", "Customers", new { id = item.productid }, htmlAttributes:null) |
                 @Html.ActionLink("Details", "Details", new { id = item.productid }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.productid })
             </td>

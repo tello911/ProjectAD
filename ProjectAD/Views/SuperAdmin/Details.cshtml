@@ -1,0 +1,43 @@
+﻿@model ProjectAD.Models.Admin
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Admin</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.adminname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adminname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.admincontact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.admincontact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.adminpass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.adminpass)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.adminid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

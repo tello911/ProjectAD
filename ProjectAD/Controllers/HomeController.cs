@@ -41,18 +41,14 @@ namespace ProjectAD.Controllers
         {
             if (ModelState.IsValid)
             {
-                var obj = db.Users.Where(a => a.username.Equals(user.username) && a.useremail.Equals(user.useremail)).FirstOrDefault();
+                var obj = db.Users.Where(a => a.username.Equals(user.username) && a.userpass.Equals(user.userpass)).FirstOrDefault();
                 if(obj != null)
                 {
-                    Session["userID"] = obj.userid.ToString();
+                    Session["userID"] = Convert.ToInt32(obj.userid);
                     Session["userName"] = obj.username.ToString();
-                    if(obj.useremail == "Customer")
-                    {
+                    
                         return RedirectToAction("Index", "Customers");
-                    }else if (obj.useremail == "Admin")
-                    {
-                        return RedirectToAction("About");
-                    }
+                    
                 }
             }
             Response.Write("<script>alert('Please check your detail again');window.location = '/Home/Login';</script>");

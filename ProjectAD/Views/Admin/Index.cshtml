@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ProjectAD.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.orderuserid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.orderquantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ordershipname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ordershipaddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ordercontact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ordertracking)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.orderdate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.orderuserid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.orderquantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ordershipname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ordershipaddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ordercontact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ordertracking)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.orderdate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.orderid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.orderid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.orderid })
+        </td>
+    </tr>
+}
+
+</table>

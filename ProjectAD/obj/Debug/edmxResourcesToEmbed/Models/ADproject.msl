@@ -1,14 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="ADprojectModelStoreContainer" CdmEntityContainer="ADprojectEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="ADprojectModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="adminid" ColumnName="adminid" />
+          <ScalarProperty Name="adminname" ColumnName="adminname" />
+          <ScalarProperty Name="admincontact" ColumnName="admincontact" />
+          <ScalarProperty Name="adminpass" ColumnName="adminpass" />
+          <ScalarProperty Name="adminstatus" ColumnName="adminstatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Order_Details">
       <EntityTypeMapping TypeName="ADprojectModel.Order_Detail">
         <MappingFragment StoreEntitySet="Order Details">
-          <ScalarProperty Name="detailid" ColumnName="detailid" />
           <ScalarProperty Name="detailorderid" ColumnName="detailorderid" />
-          <ScalarProperty Name="detailprice" ColumnName="detailprice" />
-          <ScalarProperty Name="detailproductid" ColumnName="detailproductid" />
-          <ScalarProperty Name="orderpayment" ColumnName="orderpayment" />
+          <ScalarProperty Name="detailtotalprice" ColumnName="detailtotalprice" />
+          <ScalarProperty Name="detailshipname" ColumnName="detailshipname" />
+          <ScalarProperty Name="detailshipaddress" ColumnName="detailshipaddress" />
+          <ScalarProperty Name="detailcontact" ColumnName="detailcontact" />
+          <ScalarProperty Name="detailorderdate" ColumnName="detailorderdate" />
+          <ScalarProperty Name="detailcourierid" ColumnName="detailcourierid" />
+          <ScalarProperty Name="detailuserid" ColumnName="detailuserid" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -18,11 +32,18 @@
           <ScalarProperty Name="orderid" ColumnName="orderid" />
           <ScalarProperty Name="orderuserid" ColumnName="orderuserid" />
           <ScalarProperty Name="orderquantity" ColumnName="orderquantity" />
-          <ScalarProperty Name="ordershipname" ColumnName="ordershipname" />
-          <ScalarProperty Name="ordershipaddress" ColumnName="ordershipaddress" />
-          <ScalarProperty Name="ordercontact" ColumnName="ordercontact" />
-          <ScalarProperty Name="ordertracking" ColumnName="ordertracking" />
-          <ScalarProperty Name="orderdate" ColumnName="orderdate" />
+          <ScalarProperty Name="orderproductid" ColumnName="orderproductid" />
+          <ScalarProperty Name="orderprodprice" ColumnName="orderprodprice" />
+          <ScalarProperty Name="orderdetailid" ColumnName="orderdetailid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parcels">
+      <EntityTypeMapping TypeName="ADprojectModel.Parcel">
+        <MappingFragment StoreEntitySet="Parcel">
+          <ScalarProperty Name="parcelid" ColumnName="parcelid" />
+          <ScalarProperty Name="parceltracknum" ColumnName="parceltracknum" />
+          <ScalarProperty Name="parcelpayment" ColumnName="parcelpayment" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -33,13 +54,15 @@
           <ScalarProperty Name="paymentuser" ColumnName="paymentuser" />
           <ScalarProperty Name="paymentfile" ColumnName="paymentfile" />
           <ScalarProperty Name="paymentdate" ColumnName="paymentdate" />
+          <ScalarProperty Name="paymentstatus" ColumnName="paymentstatus" />
+          <ScalarProperty Name="paymentorderdetails" ColumnName="paymentorderdetails" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Product_Categories">
       <EntityTypeMapping TypeName="ADprojectModel.Product_Category">
         <MappingFragment StoreEntitySet="Product Category">
-          <ScalarProperty Name="prodcategoryid" ColumnName="prodcategoryid" />
+          <ScalarProperty Name="categoryid" ColumnName="categoryid" />
           <ScalarProperty Name="categoryname" ColumnName="categoryname" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -52,19 +75,29 @@
           <ScalarProperty Name="productprice" ColumnName="productprice" />
           <ScalarProperty Name="productdesc" ColumnName="productdesc" />
           <ScalarProperty Name="productimage" ColumnName="productimage" />
-          <ScalarProperty Name="prodcategory" ColumnName="prodcategory" />
-          <ScalarProperty Name="produpdatedate" ColumnName="produpdatedate" />
+          <ScalarProperty Name="productcategory" ColumnName="productcategory" />
+          <ScalarProperty Name="productupdatedate" ColumnName="productupdatedate" />
+          <ScalarProperty Name="productquantity" ColumnName="productquantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shippings">
+      <EntityTypeMapping TypeName="ADprojectModel.Shipping">
+        <MappingFragment StoreEntitySet="Shipping">
+          <ScalarProperty Name="shippingid" ColumnName="shippingid" />
+          <ScalarProperty Name="shippingcourier" ColumnName="shippingcourier" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="ADprojectModel.User">
-        <MappingFragment StoreEntitySet="Users">
+        <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="userid" ColumnName="userid" />
           <ScalarProperty Name="username" ColumnName="username" />
           <ScalarProperty Name="useremail" ColumnName="useremail" />
           <ScalarProperty Name="usercontact" ColumnName="usercontact" />
           <ScalarProperty Name="useraddress" ColumnName="useraddress" />
+          <ScalarProperty Name="userpass" ColumnName="userpass" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

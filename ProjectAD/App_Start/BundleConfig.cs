@@ -42,8 +42,7 @@ namespace ProjectAD
             bundles.Add(new StyleBundle("~/template/css").Include(
                       "~/Content/css/bootstrap.css",
                       "~/Content/css/style.css",
-                      "~/Content/css/font-awesome.css",
-                      "~/Content/css/skdslider.css"));
+                      "~/Content/css/font-awesome.css"));
             #endregion
         }
     }

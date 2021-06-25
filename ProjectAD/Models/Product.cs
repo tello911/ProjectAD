@@ -11,31 +11,28 @@ namespace ProjectAD.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
     using System.Web;
 
     public partial class Product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Product()
+        {
+            this.Orders = new HashSet<Order>();
+        }
+    
         public int productid { get; set; }
-        [DisplayName("Product Name")]
-        [Required]
         public string productname { get; set; }
-        [DisplayName("Product Price")]
-        [Required]
-        public string productprice { get; set; }
-        [DisplayName("Product Description")]
-        [Required]
+        public double productprice { get; set; }
         public string productdesc { get; set; }
-        [DisplayName("Product Image")]
-        [Required]
         public string productimage { get; set; }
-        [DisplayName("Product Category")]
-        [Required]
-        public Nullable<int> prodcategory { get; set; }
-        [DisplayName("Product Update Dates")]
-        [Required]
-        public Nullable<System.DateTime> produpdatedate { get; set; }
+        public int productcategory { get; set; }
+        public System.DateTime productupdatedate { get; set; }
+        public int productquantity { get; set; }
         public HttpPostedFileBase ImageFile { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Order> Orders { get; set; }
+        public virtual Product_Category Product_Category { get; set; }
     }
 }

@@ -1,72 +1,233 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="ADprojectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="adminid" />
+    </Key>
+    <Property Name="adminid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="adminname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="admincontact" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="adminpass" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="adminstatus" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Order Details">
     <Key>
-      <PropertyRef Name="detailid" />
+      <PropertyRef Name="detailorderid" />
     </Key>
-    <Property Name="detailid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="detailorderid" Type="int" />
-    <Property Name="detailprice" Type="nvarchar" MaxLength="50" />
-    <Property Name="detailproductid" Type="int" />
-    <Property Name="orderpayment" Type="int" />
+    <Property Name="detailorderid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="detailtotalprice" Type="float" Nullable="false" />
+    <Property Name="detailshipname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="detailshipaddress" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="detailcontact" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="detailorderdate" Type="date" Nullable="false" />
+    <Property Name="detailcourierid" Type="int" Nullable="false" />
+    <Property Name="detailuserid" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Orders">
     <Key>
       <PropertyRef Name="orderid" />
     </Key>
-    <Property Name="orderid" Type="int" Nullable="false" />
-    <Property Name="orderuserid" Type="nvarchar" MaxLength="50" />
-    <Property Name="orderquantity" Type="nvarchar" MaxLength="50" />
-    <Property Name="ordershipname" Type="nvarchar" MaxLength="100" />
-    <Property Name="ordershipaddress" Type="nvarchar" MaxLength="100" />
-    <Property Name="ordercontact" Type="nvarchar" MaxLength="50" />
-    <Property Name="ordertracking" Type="nvarchar" MaxLength="50" />
-    <Property Name="orderdate" Type="date" />
+    <Property Name="orderid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="orderuserid" Type="int" Nullable="false" />
+    <Property Name="orderquantity" Type="int" Nullable="false" />
+    <Property Name="orderproductid" Type="int" Nullable="false" />
+    <Property Name="orderprodprice" Type="float" Nullable="false" />
+    <Property Name="orderdetailid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Parcel">
+    <Key>
+      <PropertyRef Name="parcelid" />
+    </Key>
+    <Property Name="parcelid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="parceltracknum" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="parcelpayment" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Payment">
     <Key>
       <PropertyRef Name="paymentid" />
     </Key>
     <Property Name="paymentid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="paymentuser" Type="nvarchar" MaxLength="50" />
-    <Property Name="paymentfile" Type="nvarchar" MaxLength="50" />
-    <Property Name="paymentdate" Type="date" />
+    <Property Name="paymentuser" Type="int" Nullable="false" />
+    <Property Name="paymentfile" Type="nvarchar" MaxLength="255" />
+    <Property Name="paymentdate" Type="date" Nullable="false" />
+    <Property Name="paymentstatus" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="paymentorderdetails" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Product Category">
     <Key>
-      <PropertyRef Name="prodcategoryid" />
+      <PropertyRef Name="categoryid" />
     </Key>
-    <Property Name="prodcategoryid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="categoryname" Type="nvarchar" MaxLength="50" />
+    <Property Name="categoryid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="categoryname" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Products">
     <Key>
       <PropertyRef Name="productid" />
     </Key>
     <Property Name="productid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="productname" Type="nvarchar" MaxLength="50" />
-    <Property Name="productprice" Type="nvarchar" MaxLength="50" />
-    <Property Name="productdesc" Type="nvarchar" MaxLength="50" />
-    <Property Name="productimage" Type="nvarchar" MaxLength="50" />
-    <Property Name="prodcategory" Type="int" />
-    <Property Name="produpdatedate" Type="date" />
+    <Property Name="productname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="productprice" Type="float" Nullable="false" />
+    <Property Name="productdesc" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="productimage" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="productcategory" Type="int" Nullable="false" />
+    <Property Name="productupdatedate" Type="date" Nullable="false" />
+    <Property Name="productquantity" Type="int" Nullable="false" />
   </EntityType>
-  <EntityType Name="Users">
+  <EntityType Name="Shipping">
+    <Key>
+      <PropertyRef Name="shippingid" />
+    </Key>
+    <Property Name="shippingid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="shippingcourier" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
     <Key>
       <PropertyRef Name="userid" />
     </Key>
     <Property Name="userid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="username" Type="nvarchar" MaxLength="50" />
-    <Property Name="useremail" Type="nvarchar" MaxLength="50" />
-    <Property Name="usercontact" Type="nvarchar" MaxLength="50" />
-    <Property Name="useraddress" Type="nvarchar" MaxLength="100" />
+    <Property Name="username" Type="nvarchar" MaxLength="75" Nullable="false" />
+    <Property Name="useremail" Type="nvarchar" MaxLength="75" Nullable="false" />
+    <Property Name="usercontact" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="useraddress" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="userpass" Type="nvarchar" MaxLength="20" Nullable="false" />
   </EntityType>
+  <Association Name="FK_Order Details_Shipping">
+    <End Role="Shipping" Type="Self.Shipping" Multiplicity="1" />
+    <End Role="Order Details" Type="Self.Order Details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Shipping">
+        <PropertyRef Name="shippingid" />
+      </Principal>
+      <Dependent Role="Order Details">
+        <PropertyRef Name="detailcourierid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Order Details">
+    <End Role="Order Details" Type="Self.Order Details" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order Details">
+        <PropertyRef Name="detailorderid" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="orderdetailid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="productid" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="orderproductid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userid" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="orderuserid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Parcel_Payment">
+    <End Role="Payment" Type="Self.Payment" Multiplicity="1" />
+    <End Role="Parcel" Type="Self.Parcel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payment">
+        <PropertyRef Name="paymentid" />
+      </Principal>
+      <Dependent Role="Parcel">
+        <PropertyRef Name="parcelpayment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_Order Details">
+    <End Role="Order Details" Type="Self.Order Details" Multiplicity="1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order Details">
+        <PropertyRef Name="detailorderid" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="paymentorderdetails" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payment_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userid" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="paymentuser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Product Category">
+    <End Role="Product Category" Type="Self.Product Category" Multiplicity="1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product Category">
+        <PropertyRef Name="categoryid" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="productcategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="ADprojectModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Order Details" EntityType="Self.Order Details" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Parcel" EntityType="Self.Parcel" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Product Category" EntityType="Self.Product Category" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Shipping" EntityType="Self.Shipping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Order Details_Shipping" Association="Self.FK_Order Details_Shipping">
+      <End Role="Shipping" EntitySet="Shipping" />
+      <End Role="Order Details" EntitySet="Order Details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Order Details" Association="Self.FK_Orders_Order Details">
+      <End Role="Order Details" EntitySet="Order Details" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Products" Association="Self.FK_Orders_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_User" Association="Self.FK_Orders_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Parcel_Payment" Association="Self.FK_Parcel_Payment">
+      <End Role="Payment" EntitySet="Payment" />
+      <End Role="Parcel" EntitySet="Parcel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_Order Details" Association="Self.FK_Payment_Order Details">
+      <End Role="Order Details" EntitySet="Order Details" />
+      <End Role="Payment" EntitySet="Payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_User" Association="Self.FK_Payment_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Payment" EntitySet="Payment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Product Category" Association="Self.FK_Products_Product Category">
+      <End Role="Product Category" EntitySet="Product Category" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

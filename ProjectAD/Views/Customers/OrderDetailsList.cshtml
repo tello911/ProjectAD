@@ -1,0 +1,97 @@
+﻿@model IEnumerable<ProjectAD.Models.Order_Detail>
+
+@{
+    ViewBag.Title = "OrderDetailsList";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+<div class="container">
+    <h2>OrderDetailsList</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+
+    <table id="example" class="display table-bordered table-striped" style="width:100%;height:20px;cursor:pointer">
+        <thead>
+            <tr class="header" height="50px;">
+                <th>
+                    @Html.DisplayNameFor(model => model.detailtotalprice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.detailshipname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.detailshipaddress)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.detailcontact)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.detailorderdate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.detailuserid)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Shipping.shippingcourier)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.detailtotalprice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.detailshipname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.detailshipaddress)
+                    </td>
+                    <td width="200px">
+                        <details style="cursor:pointer;">
+                            <summary>Order List</summary>
+                            <ul>
+                                @{
+                                    ProjectAD.Models.ADprojectEntities db = new ProjectAD.Models.ADprojectEntities();
+                                    var obj = db.Orders.Where(a => a.orderdetailid == item.detailorderid);
+                                }
+                                @foreach (var order in obj)
+                                {
+                                    <li>| @order.Product.Product_Category.categoryname | @order.orderquantity | RM @order.orderprodprice |</li>
+
+
+
+
+
+                                }
+                            </ul>
+                        </details>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.detailorderdate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.detailuserid)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Shipping.shippingcourier)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.detailorderid }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.detailorderid }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.detailorderid }) |
+                        @Html.ActionLink("Pay", "AddPayment", new { id = item.detailorderid })
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+
+    </table>
+</div>
+

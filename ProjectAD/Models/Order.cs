@@ -15,12 +15,14 @@ namespace ProjectAD.Models
     public partial class Order
     {
         public int orderid { get; set; }
-        public string orderuserid { get; set; }
-        public string orderquantity { get; set; }
-        public string ordershipname { get; set; }
-        public string ordershipaddress { get; set; }
-        public string ordercontact { get; set; }
-        public string ordertracking { get; set; }
-        public Nullable<System.DateTime> orderdate { get; set; }
+        public int orderuserid { get; set; }
+        public int orderquantity { get; set; }
+        public int orderproductid { get; set; }
+        public double orderprodprice { get; set; }
+        public int orderdetailid { get; set; }
+    
+        public virtual Order_Detail Order_Details { get; set; }
+        public virtual Product Product { get; set; }
+        public virtual User User { get; set; }
     }
 }

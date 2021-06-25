@@ -25,15 +25,14 @@ namespace ProjectAD.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Order_Detail> Order_Details { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Parcel> Parcels { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<Product_Category> Product_Categories { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Shipping> Shippings { get; set; }
         public virtual DbSet<User> Users { get; set; }
-
-        public System.Data.Entity.DbSet<ProjectAD.Models.ViewModels.Test> Tests { get; set; }
-
-        public System.Data.Entity.DbSet<ProjectAD.Models.ViewModels.ListTest> ListTests { get; set; }
     }
 }

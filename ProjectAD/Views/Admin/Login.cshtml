@@ -1,0 +1,47 @@
+﻿@model ProjectAD.Models.Admin
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+
+@using (Html.BeginForm("Login", "Admin", FormMethod.Post))
+{
+    <fieldset>
+
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @if (@ViewBag.Message != null)
+        {
+            <div style="border: 1px solid red">
+                @ViewBag.Message
+            </div>}
+        <div class="login">
+            <div class="container">
+                <h2>Login Form</h2>
+
+                <div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
+
+                    Name
+                    @Html.TextBoxFor(a => a.adminname, new { htmlAttributes = new { @class = "form-control", placeholder = "Your Example Here" } })
+                    @Html.ValidationMessageFor(a => a.adminname)
+
+                    <br />
+                    Password
+                    @Html.PasswordFor(a => a.adminpass)
+                    @Html.ValidationMessageFor(a => a.adminpass)
+
+
+                    <input type="submit" value="Login" />
+
+
+                    <h4>For New People</h4>
+                    <p><a href="Register">Register Here</a> (Or) go back to <a href="index.cshtml">Home<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></p>
+                </div>
+            </div>
+        </div><br />
+    </fieldset>
+
+}

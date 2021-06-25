@@ -6,7 +6,7 @@
 }
 
 <h2>Index</h2>
-
+@Session["userID"]
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -25,10 +25,10 @@
             @Html.DisplayNameFor(model => model.productimage)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.prodcategory)
+            @Html.DisplayNameFor(model => model.productcategory)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.produpdatedate)
+            @Html.DisplayNameFor(model => model.productupdatedate)
         </th>
         <th></th>
     </tr>
@@ -49,10 +49,10 @@
                 <img src="~/Content/Products/@Html.DisplayFor(modelItem => item.productimage)" alt="Image @item.productid" height="200" width="200" />
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.prodcategory)
+                @Html.DisplayFor(modelItem => item.productcategory)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.produpdatedate)
+                @Html.DisplayFor(modelItem => item.productupdatedate)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.productid }) |
@@ -87,9 +87,9 @@
         background-color: white;
         color: #56575b;
         margin: 5px 0;
-        .plan-name
+    }
 
-    {
+    .plan-name {
         padding: 13px 0;
         border-bottom: 1px #eff0f2 solid;
         text-align: center;
@@ -142,14 +142,9 @@
         text-align: center;
         padding: 0 15px;
         min-height: 95px;
-        &:hover a
-
-    {
         opacity: 0.8;
         color: #fff;
         text-decoration: none;
-    }
-
     }
 
     .button,
@@ -164,12 +159,10 @@
         outline: none !important;
         padding: 0.6em 1em;
     }
-
-    }
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" >
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap"/ >
+    
 </style>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
@@ -192,7 +185,7 @@
                     <p>@Html.DisplayFor(modelItem => item.productdesc)</p>
                 </div>
                 <div class="plan-description specs">
-                    @Html.DisplayFor(modelItem => item.prodcategory)
+                    @Html.DisplayFor(modelItem => item.productcategory)
                 </div>
                 <div class="plan-cta">
                     @Html.ActionLink("Edit", "Edit", new { id = item.productid }) |

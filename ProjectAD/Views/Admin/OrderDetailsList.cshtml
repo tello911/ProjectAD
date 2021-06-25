@@ -1,0 +1,70 @@
+﻿@model IEnumerable<ProjectAD.Models.Order_Detail>
+
+@{
+    ViewBag.Title = "OrderDetailsList";
+    Layout = "~/Views/Shared/_CustomerLayout.cshtml";
+}
+
+<h2>OrderDetailsList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.detailtotalprice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.detailshipname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.detailshipaddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.detailcontact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.detailorderdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.detailuserid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Shipping.shippingcourier)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.detailtotalprice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.detailshipname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.detailshipaddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.detailcontact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.detailorderdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.detailuserid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shipping.shippingcourier)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.detailorderid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.detailorderid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.detailorderid })
+        </td>
+    </tr>
+}
+
+</table>

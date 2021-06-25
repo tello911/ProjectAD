@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ProjectAD.Models.Parcel>
+
+@{
+    ViewBag.Title = "ParcelList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br>
+<div class="container">
+    <div class="card">
+        <h2>ParcelList</h2>
+
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.parceltracknum)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Payment.paymentfile)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Payment.paymentuser)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.parceltracknum)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Payment.paymentfile)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Payment.paymentuser)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditParcel", new { id = item.parcelid }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.parcelid }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.parcelid })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
